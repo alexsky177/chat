@@ -1,10 +1,7 @@
-const send = document.getElementById("message-input");
-
-input.addEventListener("keydown", function(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        sendMessage();
-    }
+   document.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13 || event.which === 13) {
+    document.getElementById('send').click();
+  }
 });
   const div = document.querySelector('#messages');
   div.addEventListener('DOMNodeInserted', () => {
@@ -14,7 +11,7 @@ function cleanDynamicDiv() {
   var dynamicDiv = document.getElementById("messages");
   dynamicDiv.innerHTML = "";
 }
-  document.querySelector(".mobile-sidebar").addEventListener("click", (event) => {
+document.querySelector(".mobile-sidebar").addEventListener("click", (event) => {
   const sidebar = document.querySelector(".conversations");
 
   if (sidebar.classList.contains("shown")) {
@@ -24,6 +21,11 @@ function cleanDynamicDiv() {
     sidebar.classList.add("shown");
     event.target.classList.add("rotated");
   }
-
+});
+message_input.addEventListener("blur", () => {
   window.scrollTo(0, 0);
+});
+
+message_input.addEventListener("focus", () => {
+  document.documentElement.scrollTop = document.documentElement.scrollHeight;
 });
