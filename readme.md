@@ -1,4 +1,4 @@
-Version 3.5 turbo
+Version ChatGPT 3.5 turbo
 
 Need PHP version 7 or 8.
 
