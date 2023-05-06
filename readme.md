@@ -13,4 +13,4 @@ https://github.com/qiayue/php-openai-gpt-stream-chat-api-webui
 
 Work same as python version xtekky, but no have some small functions (stop generate answer, etc.)
 
-You can see interface on screenshot.png file
+You can see interface on screenshot.png file.
