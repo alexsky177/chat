@@ -1,6 +1,6 @@
 const messagesContainer = document.getElementById('messages');
-const input = document.getElementById('input');
-const sendButton = document.getElementById('send');
+const input = document.getElementById('message-input');
+const sendButton = document.getElementById('send-button');
 var qaIdx = 0,answers={},answerContent='',answerWords=[];
 var codeStart=false,lastWord='',lastLastWord='';
 var typingTimer=null,typing=false,typingIdx=0,contentIdx=0,contentEnd=false;
