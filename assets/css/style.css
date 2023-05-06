@@ -829,26 +829,26 @@ a:-webkit-any-link {
                 font-size: 15px;
             }
 
-            #input {
+          #message-input {
                 margin-right: 30px;
                 height: 80px;
             }
 
-            #input::-webkit-scrollbar {
+            #message-input::-webkit-scrollbar {
                 width: 5px;
             }
 
             /* Track */
-            #input::-webkit-scrollbar-track {
+            #message-input::-webkit-scrollbar-track {
                 background: #f1f1f1; 
             }
             
             /* Handle */
-            #input::-webkit-scrollbar-thumb {
+            #message-input::-webkit-scrollbar-thumb {
                 background: #c7a2ff; 
             }
 
             /* Handle on hover */
-            #input::-webkit-scrollbar-thumb:hover {
+            #message-input::-webkit-scrollbar-thumb:hover {
                 background: #8b3dff; 
             }
