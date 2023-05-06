@@ -1,5 +1,7 @@
 Version 3.5 turbo
 
+Need PHP version 7 or 8.
+
 1) Copy all files. 
 2) Change open AI API key in file "chat.php". 
 3) ALL is finished. Can use. 
