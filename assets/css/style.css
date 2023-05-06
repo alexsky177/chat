@@ -640,10 +640,10 @@ a:-webkit-any-link {
     border: none;
     outline: none;
     color: var(--colour-3);
-
-    resize: vertical;
+	
+	resize: vertical;
+	min-height: 80px;
     max-height: 150px;
-    min-height: 80px;
 }
 
 /* style for hljs copy */
@@ -814,13 +814,8 @@ a:-webkit-any-link {
     --clr-card-bg: hsl(209 50% 5%);
     --colour-3: hsl(209 50% 90%);
     --conversations: hsl(209 50% 80%);
-}
-
-            @media only screen and (max-width: 768px) {
-            .field {
-            display: none;
-             }
-            }
+			 
+			  
 			.hljs {
                 color: #e9e9f4;
                 background: #28293629;
@@ -829,7 +824,7 @@ a:-webkit-any-link {
                 font-size: 15px;
             }
 
-          #message-input {
+            #message-input {
                 margin-right: 30px;
                 height: 80px;
             }
