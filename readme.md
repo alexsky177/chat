@@ -16,3 +16,5 @@ Work same as python version xtekky, but no have some small functions (stop gener
 Button model, temperature, web access, default not functioning now (need make...)
 
 You can see interface on screenshot.png file.
+
+![Screenshot]([[link to image](https://user-images.githubusercontent.com/98614666/232768610-fdeada85-3d21-4cf9-915e-a0ec9f3b7a9f.png)]
