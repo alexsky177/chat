@@ -9,7 +9,7 @@ Need PHP version 7 or 8.
    'api_key' => 'Your open ai api key ',
 ]);
 
-ALL is finished. Can use. 
+All is finished. Can use.
 
 
 3) Open index.html to start.
