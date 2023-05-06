@@ -4,8 +4,14 @@ Need PHP version 7 or 8.
 
 1) Copy all files. 
 2) Change open AI API key in file "chat.php". 
-3) ALL is finished. Can use. 
-4) Go to index.html any browser or mobile device
+ 
+   $chat = new ChatGPT([
+   'api_key' => 'Yoyr open ai api key ',
+]);
+
+ALL is finished. Can use. 
+
+3) Go to index.html any browser or mobile device
 
 Used frontpage html and css from this project
 https://github.com/xtekky/chatgpt-clone
