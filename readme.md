@@ -6,7 +6,7 @@ Need PHP version 7 or 8.
 2) Change open AI API key in file "chat.php". 
  
    $chat = new ChatGPT([
-   'api_key' => 'Yoyr open ai api key ',
+   'api_key' => 'Your open ai api key ',
 ]);
 
 ALL is finished. Can use. 
