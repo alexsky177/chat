@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+        <meta name="description" content="ChatGPT Clone PHP beta">
+        <meta property="og:title" content="ChatGPT">
+        <meta property="og:image" content="https://openai.com/content/images/2022/11/ChatGPT.jpg">
+        <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@latest/build/styles/base16/dracula.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
+		<script src="assets/js/icons.js"></script>
+        <title>ChatGPT clone php beta</title>
+    </head>
+    <body>
+        <div class="gradient"></div>
+        <div class="row">
+            <div class="box conversations">
+                    <div class="info">
+                        <a href="."><i class="fa-regular fa-circle-plus"></i></a>
+                        <span class="convo-title">New chat</span></a>
+                    </div>
+                <div class="top">
+                    <div class="spinner"></div>
+                </div>
+                <div class="bottom_buttons">
+                    <button onclick="cleanDynamicDiv()">
+                        <i class="fa-regular fa-trash"></i>
+                        <span>Clean chat</span>
+                    </button>
+                    <div class="info">
+                        <i class="fa-regular fa-circle-info"></i>
+                        <span class="convo-title">By: @alexsky<br>
+                            Version: 0.0.2-beta<br>
+                            Release: 2023-05-01<br>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="conversation">
+                <div class="stop_generating stop_generating-hidden">
+                    <button id="cancelButton">
+                        <span>Stop</span>
+                        <i class="fa-regular fa-stop"></i>
+                    </button>
+                </div>
+				<div class="box" id="messages">
+                </div>
+				 <div class="user-input">
+                    <div class="box input-box">
+                        <textarea id="input" placeholder="Ask me anything" style="white-space: pre-wrap;"></textarea>
+                        <div id="send" class="button" onclick="sendMessage()">
+                            <i class="fa-regular fa-paper-plane-top"></i>
+                        </div>
+                    </div>
+                </div><form id="pref">
+                <div class="buttons">
+                    <div class="field">
+                        <input type="checkbox" id="switch">
+                        <label for="switch"></label>
+                        <span class="about">Web Access</span>
+                    </div>
+                    <div class="field">
+                        <select name="model" id="model">
+						    <option value="" selected>Model</option>
+                            <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+                            <option value="gpt-3.5-turbo-0301">gpt-3.5-turbo-0301</option>
+							<option value="gpt-4">gpt-4</option>         
+                            <option value="gpt-4-0314">gpt-4-0314</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select name="jailbreak" id="jailbreak">
+                            <option value="" selected>default</option>
+                            <option value="gpt-math-1.0">math 1.0</option>
+                            <option value="gpt-dude-1.0">dude 1.0</option>
+                            <option value="gpt-dan-1.0">dan 1.0</option>
+                            <option value="gpt-dan-2.0">dan 2.0</option>
+                            <option value="gpt-dev-2.0">dev 2.0</option>
+                            <option value="gpt-evil-1.0">evil 1.0</option>
+                        </select>
+                    </div>
+					 <div class="field">
+					     <select name="temperature" id="temperature">
+						    <option value="" selected>Temperature</option>
+                            <option value="0.5">0.5</option>
+                            <option value="0.6">0.6</option>
+                            <option value="0.7">0.7</option>
+                            <option value="0.8">0.8</option>
+                            <option value="0.9">0.9</option>
+                            <option value="1.0">1.0</option>
+                        </select>
+                    </div></form>
+                 <div class="field">
+                <form class="color-picker">
+                    <fieldset>
+                        <legend class="visually-hidden">Pick a color scheme</legend>
+                        <label for="light" class="visually-hidden">Light</label>
+                        <input type="radio" name="theme" id="light" checked>
+                    
+                        <label for="pink" class="visually-hidden">Pink theme</label>
+                        <input type="radio" id="pink" name="theme">
+                    
+                        <label for="blue" class="visually-hidden">Blue theme</label>
+                        <input type="radio" id="blue" name="theme">
+                    
+                        <label for="green" class="visually-hidden">Green theme</label>
+                        <input type="radio" id="green" name="theme">
+                    
+                        <label for="dark" class="visually-hidden">Dark theme</label>
+                        <input type="radio" id="dark" name="theme">
+                    </fieldset>
+                    </form></div>
+                </div>
+            </div>
+		</div>
+        <div class="mobile-sidebar">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+	<script src="static/js/marked.min.js"></script>
+	<script src="assets/js/highlight.min.js"></script>
+    <script src="static/js/chat.js"></script>
+	<script src="static/js/pref.js"></script>
+</body>
+</html>
