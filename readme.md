@@ -27,7 +27,7 @@ Used php classes from this project
 https://github.com/qiayue/php-openai-gpt-stream-chat-api-webui
 
 
-Work same as python version xtekky, but no have 1 function (web search)
+Work same as python version xtekky, but no have functions web search and choose model, temperature.
 
 Button web search changed to Light or Dark theme.
 
