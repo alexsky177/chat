@@ -10,11 +10,12 @@ Need PHP version 7 or 8.
 ]);
 
 If you want change text on the splash screen at first startup (it is shown to the user only once):
-go to path static/js/pref.js,
-change text in lines 57-61.
+
+3) go to path static/js/pref.js,
+4) change text in lines 57-61.
 
 
-3) Open index.html to start.
+5) Open index.html.
 
 
 Used frontpage html and css from this project
