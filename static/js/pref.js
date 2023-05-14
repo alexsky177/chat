@@ -56,9 +56,9 @@ if (localStorage.getItem('isFunctionCalled') === 'true') {
                 <div class="content"> 
                     <p><b>Привет!</b></p>
 					<p>&nbsp;</p>
-					<p>Я искусственный интеллект ChatGPT.</p>
+					<p>I am AI from ChatGPT.</p>
 					<p>&nbsp;</p>
-					С удовольствием отвечу на вопросы.</p>
+					<p>Happy to answer your questions.</p>
                 </div></div>`;
   setTimeout(function() {
     div.innerHTML = "";
