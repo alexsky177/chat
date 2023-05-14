@@ -29,4 +29,5 @@ Button model, temperature, web access, default not functioning now (need make...
 
 You can see interface on screenshot.png file.
 
-<img src="https:://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
+<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
+<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.jpg?raw=true" alt="chatgpt php"/>
