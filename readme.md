@@ -9,7 +9,8 @@ Need PHP version 7 or 8.
    'api_key' => 'Your open ai api key ',
 ]);
 
-All is finished. Can use.
+If you want change text on the splash screen at first startup (it is shown to the user only once) - go to static/js/pref.js
+Change text from line 57-61.
 
 
 3) Open index.html to start.
@@ -23,9 +24,9 @@ Used php classes from this project
 https://github.com/qiayue/php-openai-gpt-stream-chat-api-webui
 
 
-Work same as python version xtekky, but no have some small functions (stop generate answer, etc.)
+Work same as python version xtekky, but no have 1 function (web search)
 
-Button model, temperature, web access, default not functioning now (need make...)
+Button web search changed to Light or Dark theme.
 
 You can see interface on screenshot.png file.
 
