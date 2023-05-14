@@ -9,8 +9,9 @@ Need PHP version 7 or 8.
    'api_key' => 'Your open ai api key ',
 ]);
 
-If you want change text on the splash screen at first startup (it is shown to the user only once) - go to static/js/pref.js
-Change text from line 57-61.
+If you want change text on the splash screen at first startup (it is shown to the user only once):
+Go to path static/js/pref.js,
+Change text in lines 57-61.
 
 
 3) Open index.html to start.
