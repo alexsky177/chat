@@ -109,7 +109,7 @@ class DFA_Node
 
 
 /*
-$inputText = "Предложения для проверки";
+$inputText = "Suggestions for verification";
 $isContain = $dfa->containsSensitiveWords($inputText);
 
 echo "Original Text: \n" . $inputText . "\n";
