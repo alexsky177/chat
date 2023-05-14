@@ -4,7 +4,7 @@ Need PHP version 7 or 8.
 
 1) Download and unzip arhiv. 
 2) Upload to web server via ftp client.
-3) Change open AI API key in file "chat.php". 
+3) Put your AI API key in file "chat.php". 
  
    $chat = new ChatGPT([
    'api_key' => 'Your open ai api key ',
