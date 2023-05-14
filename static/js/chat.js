@@ -1,11 +1,22 @@
-const messagesContainer = document.getElementById('messages');
-const input = document.getElementById('message-input');
-const sendButton = document.getElementById('send');
-var qaIdx = 0,answers={},answerContent='',answerWords=[];
+const messagesContainer = document.getElementById(`messages`);
+const input = document.getElementById(`message-input`);
+const sendButton = document.getElementById(`send`);
+var qaIdx = 98703480,answers={},answerContent='',answerWords=[];
 var codeStart=false,lastWord='',lastLastWord='';
 var typingTimer=null,typing=false,typingIdx=0,contentIdx=0,contentEnd=false;
 
-//markdown解析，代码高亮设置
+const stop_generating = document.querySelector(`.stop_generating`);
+
+const remove_cancel_button = async () => {
+  stop_generating.classList.add(`stop_generating-hiding`);
+
+  setTimeout(() => {
+    stop_generating.classList.remove(`stop_generating-hiding`);
+    stop_generating.classList.add(`stop_generating-hidden`);
+  }, 300);
+};
+
+// markdown highlighting settings
 marked.setOptions({
     highlight: function (code, language) {
         const validLanguage = hljs.getLanguage(language) ? language : 'javascript';
@@ -13,14 +24,15 @@ marked.setOptions({
     },
 });
 
+hljs.addPlugin(new CopyButtonPlugin());
 
-//在输入时和获取焦点后自动调整输入框高度
+// Automatically adjust the input box height when inputting or focusing
 input.addEventListener('input', adjustInputHeight);
 input.addEventListener('focus', adjustInputHeight);
 
-// 自动调整输入框高度
+// Automatically adjust input box height
 function adjustInputHeight() {
-    input.style.height = 'auto'; // 将高度重置为 auto
+    input.style.height = 'auto'; // Reset height to 80px (auto)
     input.style.height = (input.scrollHeight+2) + 'px';
 }
 
@@ -29,24 +41,31 @@ function sendMessage() {
     if (!inputValue) {
         return;
     }
-
     const question = document.createElement('div');
-    question.setAttribute('class', 'message question');
+    question.setAttribute('class', 'message');
     question.setAttribute('id', 'question-'+qaIdx);
-    question.innerHTML = marked.parse(inputValue);
+    question.innerHTML = `
+                <div class="user">
+                    ${user_image}
+                    <i class="fa-regular fa-phone-arrow-up-right"></i>
+                </div>
+                <div class="content" id="user_${qaIdx}"> 
+                    ${marked.parse(inputValue)}
+                </div>
+        `;
     messagesContainer.appendChild(question);
 
     const answer = document.createElement('div');
-    answer.setAttribute('class', 'message answer');
+    answer.setAttribute('class', 'message');
     answer.setAttribute('id', 'answer-'+qaIdx);
-    answer.innerHTML = marked.parse('Moment please ...');
+    answer.innerHTML = '<div id="cursor"></div>';
     messagesContainer.appendChild(answer);
 
     answers[qaIdx] = document.getElementById('answer-'+qaIdx);
 
     input.value = '';
     input.disabled = true;
-    sendButton.disabled = true;
+	stop_generating.classList.remove(`stop_generating-hidden`);
     adjustInputHeight();
 
     typingTimer = setInterval(typingWords, 50);
@@ -75,7 +94,14 @@ function getAnswer(inputValue){
             console.log(error);
         }
     });
-
+     
+    const stopBtn = document.getElementById("cancelButton");
+    stopBtn.addEventListener("click", () => {
+    eventSource.close();
+    contentEnd = true;
+    console.log((new Date().getTime()), 'answer stopped');
+    });
+	 
     eventSource.addEventListener("error", (event) => {
         console.error("An error occurred：", JSON.stringify(event));
     });
@@ -88,12 +114,10 @@ function getAnswer(inputValue){
     });
 }
 
-
 function typingWords(){
     if(contentEnd && contentIdx==typingIdx){
         clearInterval(typingTimer);
         answerContent = '';
-		window.scrollTo(0, 0);
         answerWords = [];
         answers = [];
         qaIdx += 1;
@@ -102,8 +126,9 @@ function typingWords(){
         contentEnd = false;
         lastWord = '';
         lastLastWord = '';
-        input.disabled = false;
-        sendButton.disabled = false;
+        input.disabled = false;	
+		stop_generating.classList.add(`stop_generating-hidden`);
+		input.focus();
         console.log((new Date().getTime()), 'typing end');
         return;
 	}
@@ -113,6 +138,7 @@ function typingWords(){
     if(typing){
         return;
     }
+	
     typing = true;
     
     if(!answers[qaIdx]){
@@ -129,14 +155,26 @@ function typingWords(){
             codeStart = !codeStart;
         }
     }
-
+	
     lastLastWord = lastWord;
     lastWord = content;
-
+	
     answerContent += content;
 	
-    answers[qaIdx].innerHTML = marked.parse(answerContent+(codeStart?'\n\n```':''));
-
+	answers[qaIdx].innerHTML = `
+    <div class="user">
+    ${gpt_image}
+    <i class="fa-regular fa-phone-arrow-down-left"></i>
+    </div>
+    <div class="content" id="gpt_${qaIdx}">
+     ${marked.parse(answerContent + (codeStart ? '\n\n```' : ''))}
+    </div>
+    `;
     typingIdx += 1;
     typing = false;
+	
+    document.querySelectorAll('code:not(p code):not(li code)').forEach((el) => {
+  hljs.highlightElement(el);
+});
+
 }

@@ -38,31 +38,9 @@ myDiv.addEventListener("click", function() {
   location.reload();
 });
 
-document.getElementById('switch-dark').addEventListener('change', function() {
+document.getElementById('switch-light').addEventListener('change', function() {
   if (this.checked) {
-    window.location.href = 'dark.html';
+    window.location.href = '/';
   }
 });
 
-if (localStorage.getItem('isFunctionCalled') === 'true') {
-  console.log('Function Called');
-} else {
-  console.log('Call Function');
-		window.onload = function() {
-  var div = document.getElementById("messages");
-  div.innerHTML = `<div style="margin: auto; width: 50%; align-items: center;"><div class="user">
-                <img src="static/img/opnai.png" style="display: block; max-width: 100%;"><p>&nbsp;</p>
-				</div>
-                <div class="content"> 
-                    <p><b>Привет!</b></p>
-					<p>&nbsp;</p>
-					<p>Я искусственный интеллект ChatGPT.</p>
-					<p>&nbsp;</p>
-					С удовольствием отвечу на вопросы.</p>
-                </div></div>`;
-  setTimeout(function() {
-    div.innerHTML = "";
-  }, 3000);
-}
-  localStorage.setItem('isFunctionCalled', 'true');
-}
