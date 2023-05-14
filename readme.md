@@ -15,7 +15,7 @@ If you want change text on the splash screen at first startup (it is shown to th
 4) change text in lines 57-61.
 
 
-5) Go to index.html by browser.
+Go to index.html by browser.
 
 
 Used frontpage html and css from this project
