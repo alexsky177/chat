@@ -56,7 +56,7 @@ if (localStorage.getItem('isFunctionCalled') === 'true') {
                 <div class="content"> 
                     <p><b>Hi!</b></p>
 					<p>&nbsp;</p>
-					<p>I am AI from ChatGPT.</p>
+					<p>I am open AI ChatGPT.</p>
 					<p>&nbsp;</p>
 					<p>Happy to answer your questions.</p>
                 </div></div>`;
