@@ -2,7 +2,7 @@ Version ChatGPT 3.5 turbo
 
 Need PHP version 7 or 8.
 
-1) Copy all files. 
+1) Download and unzip arhiv. 
 2) Change open AI API key in file "chat.php". 
  
    $chat = new ChatGPT([
