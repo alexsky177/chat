@@ -30,7 +30,7 @@ Work same as python version xtekky, but no have 1 function (web search)
 
 Button web search changed to Light or Dark theme.
 
-You can see interface on screenshot.png file.
+You can see interface on screenshots files:
 
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.jpg?raw=true" alt="chatgpt php"/>
