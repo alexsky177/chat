@@ -12,8 +12,8 @@ Need PHP version 7 or 8.
 
 If you want change text on the splash screen at first startup (it is shown to the user only once):
 
-3) go to path static/js/pref.js,
-4) change text in lines 57-61.
+3) Go to path static/js/pref.js,
+4) Change text in lines 57-61.
 
 
 4) Go to index.html by browser and enjoy.
