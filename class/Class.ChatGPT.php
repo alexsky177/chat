@@ -31,7 +31,7 @@ class ChatGPT {
 
 
         if(empty($this->api_key)){
-            $this->streamHandler->end('Api key не задан');
+            $this->streamHandler->end('Api key undefined');
             return;
         }
 
