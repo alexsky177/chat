@@ -54,7 +54,7 @@ if (localStorage.getItem('isFunctionCalled') === 'true') {
                 <img src="static/img/opnai.png" style="display: block; max-width: 100%;"><p>&nbsp;</p>
 				</div>
                 <div class="content"> 
-                    <p><b>Привет!</b></p>
+                    <p><b>Hi!</b></p>
 					<p>&nbsp;</p>
 					<p>I am AI from ChatGPT.</p>
 					<p>&nbsp;</p>
