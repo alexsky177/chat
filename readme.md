@@ -3,7 +3,8 @@ Version ChatGPT 3.5 turbo
 Need PHP version 7 or 8.
 
 1) Download and unzip arhiv. 
-2) Change open AI API key in file "chat.php". 
+2) Upload to web server via ftp client.
+3) Change open AI API key in file "chat.php". 
  
    $chat = new ChatGPT([
    'api_key' => 'Your open ai api key ',
@@ -15,7 +16,7 @@ If you want change text on the splash screen at first startup (it is shown to th
 4) change text in lines 57-61.
 
 
-Go to index.html by browser.
+Go to index.html by browser and enjoy.
 
 
 Used frontpage html and css from this project
