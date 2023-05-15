@@ -32,7 +32,7 @@ class StreamHandler {
 
         $result = json_decode($data, TRUE);
         if(is_array($result)){
-        	$this->end('openai неправильный запрос：'.json_encode($result));
+        	$this->end('openai bad request：'.json_encode($result));
         	return strlen($data);
         }
 
