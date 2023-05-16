@@ -31,14 +31,14 @@ class ChatGPT {
 
 
         if(empty($this->api_key)){
-            $this->streamHandler->end('Api key undefined');
+            $this->streamHandler->end('The OpenAI API key has not been filled in yet');
             return;
         }
 
 
-        // Enabling banned word detection
+        // Activate detection and ask if the question contains sensitive words
         if($this->check_sensitive && $this->dfa->containsSensitiveWords($this->question)){
-            $this->streamHandler->end('Your question is invalid，AI is tunable to answer');
+            $this->streamHandler->end('Your question is not appropriate, AI is unable to answer at the moment');
             return;
         }
 
@@ -52,13 +52,15 @@ class ChatGPT {
     	        'content' => $this->question
     	    ]
     	];
-		
-        $json = json_encode([
-       'model' => gpt-3.5-turbo,
-       'messages' => $messages,
-       'temperature' => 0.6,
-       'stream' => true,
-    ]);
+
+    	$json = json_encode([
+    	    'model' => 'gpt-3.5-turbo',
+    	    'messages' => $messages,
+    	    'temperature' => 0.6,
+			'frequency_penalty' => 0,
+			'presence_penalty' => 0,
+    	    'stream' => true,
+    	]);
 
     	$headers = array(
     	    "Content-Type: application/json",
@@ -94,4 +96,3 @@ class ChatGPT {
     }
 
 }
-
