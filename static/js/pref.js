@@ -1,7 +1,6 @@
-   document.addEventListener('keydown', function(event) {
-    if (event.keyCode === 13 || event.which === 13) {
-    document.getElementById('send').click();
-  }
+ document.addEventListener('keydown', function(event) { 
+if ((event.keyCode === 13 || event.which === 13) && !event.shiftKey) 
+{ document.getElementById('send').click(); event.preventDefault(); } 
 });
 
 let scrolling = false;
@@ -38,10 +37,25 @@ myDiv.addEventListener("click", function() {
   location.reload();
 });
 
-document.getElementById('switch-dark').addEventListener('change', function() {
-  if (this.checked) {
-    window.location.href = 'dark.html';
-  }
+var toggleSwitch = document.getElementById("toggle-switch");
+  toggleSwitch.addEventListener("change", function() { 
+  if (toggleSwitch.checked) { 
+    document.getElementById("dark").checked = true;
+    var oldlink = document.getElementsByTagName("link").item(1);
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", "static/css/dracula.min.css");
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+  } else { 
+    document.getElementById("light").checked = true;
+    var oldlink = document.getElementsByTagName("link").item(1);
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", "static/css/googlecode.min.css");
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+  } 
 });
 
 if (localStorage.getItem('isFunctionCalled') === 'true') {
