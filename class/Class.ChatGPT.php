@@ -53,13 +53,10 @@ class ChatGPT {
     	    ]
     	];
 		
-        $model = isset($_POST['model']) ? $_POST['model'] : 'gpt-3.5-turbo';
-        $temperature = isset($_POST['temperature']) ? $_POST['temperature'] : 0.6;
-
         $json = json_encode([
-       'model' => $model,
+       'model' => gpt-3.5-turbo,
        'messages' => $messages,
-       'temperature' => $temperature,
+       'temperature' => 0.6,
        'stream' => true,
     ]);
 
