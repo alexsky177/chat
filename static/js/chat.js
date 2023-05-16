@@ -5,6 +5,7 @@ var qaIdx = 98703480,answers={},answerContent='',answerWords=[];
 var codeStart=false,lastWord='',lastLastWord='';
 var typingTimer=null,typing=false,typingIdx=0,contentIdx=0,contentEnd=false;
 
+
 const stop_generating = document.querySelector(`.stop_generating`);
 
 const remove_cancel_button = async () => {
@@ -71,6 +72,11 @@ function sendMessage() {
     typingTimer = setInterval(typingWords, 50);
 
     getAnswer(inputValue);
+	
+	var textarea = document.getElementById('message-input');
+    var text = textarea.value;
+    var highlighted = hljs.highlightAuto(text).value;
+    textarea.value = highlighted;
 }
 
 function getAnswer(inputValue){
@@ -127,8 +133,8 @@ function typingWords(){
         lastWord = '';
         lastLastWord = '';
         input.disabled = false;	
-		stop_generating.classList.add(`stop_generating-hidden`);
 		input.focus();
+		stop_generating.classList.add(`stop_generating-hidden`);
         console.log((new Date().getTime()), 'typing end');
         return;
 	}
