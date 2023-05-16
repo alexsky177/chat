@@ -40,7 +40,7 @@ myDiv.addEventListener("click", function() {
 
 document.getElementById('switch-light').addEventListener('change', function() {
   if (this.checked) {
-    window.location.href = 'index.html';
+    window.location.href = './';
   }
 });
 
