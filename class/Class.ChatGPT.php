@@ -57,8 +57,8 @@ class ChatGPT {
     	    'model' => 'gpt-3.5-turbo',
     	    'messages' => $messages,
     	    'temperature' => 0.6,
-			'frequency_penalty' => 0,
-			'presence_penalty' => 0,
+	    'frequency_penalty' => 0,
+	    'presence_penalty' => 0,
     	    'stream' => true,
     	]);
 
