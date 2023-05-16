@@ -627,10 +627,12 @@ a:-webkit-any-link {
     position: relative;
     overflow: hidden;
 	color: #e9e9f4;
-    background: #28293629 !important;
     border-radius: var(--border-radius-1);
     border: 1px solid var(--blur-border);
     font-size: 15px;
+	white-space: pre-wrap;
+	word-break: break-all;
+	overflow-wrap: break-all;
 }
 
 .hljs-copy-wrapper:hover .hljs-copy-button,
@@ -721,74 +723,80 @@ a:-webkit-any-link {
     background-color: var(--radio-color);
 }
 
-.color-picker input[type="radio"]#grey {
+.color-picker input[type="radio"]#light {
     --radio-color: gray;
 }
 
-.color-picker input[type="radio"]#brown {
-    --radio-color: brown;
+.color-picker input[type="radio"]#pink {
+    --radio-color: pink;
+}
+
+.color-picker input[type="radio"]#blue {
+    --radio-color: blue;
 }
 
 .color-picker input[type="radio"]#green {
     --radio-color: green;
 }
 
-.color-picker input[type="radio"]#blue {
-    --radio-color: #blue;
+.color-picker input[type="radio"]#dark {
+    --radio-color: #232323;
 }
 
-.grey {
-    --colour-1: hsl(179, 40%, 10%);
-    --clr-card-bg: hsl(179 40% 5%);
-    --colour-3: hsl(179 40% 90%);
-    --conversations: hsl(109 40% 80%);
-}	
+.pink {
+    --colour-1: hsl(310 50% 90%);
+    --clr-card-bg: hsl(310 50% 100%);
+    --colour-3: hsl(310 50% 15%);
+    --conversations: hsl(310 50% 25%);
+}
 
-.brown {
-    --colour-1: hsl(59 40% 10%);
-    --clr-card-bg: hsl(59 40% 5%);
-    --colour-3: hsl(59 20% 40%);
-    --conversations: hsl(59 40% 80%);
+.blue {
+    --colour-1: hsl(209 50% 90%);
+    --clr-card-bg: hsl(209 50% 100%);
+    --colour-3: hsl(209 50% 15%);
+    --conversations: hsl(209 50% 25%);
 }
 
 .green {
-    --colour-1: hsl(129, 40%, 10%);
-    --clr-card-bg: hsl(129 40% 5%);
-    --colour-3: hsl(129 40% 90%);
-    --conversations: hsl(129 40% 80%);
+    --colour-1: hsl(109 50% 90%);
+    --clr-card-bg: hsl(109 50% 100%);
+    --colour-3: hsl(109 50% 15%);
+    --conversations: hsl(109 50% 25%);
 }
 
 .dark {
-    --colour-1: hsl(239 40% 10%);
-    --clr-card-bg: hsl(239 40% 5%);
-    --colour-3: hsl(239 40% 90%);
-    --conversations: hsl(239 40% 80%);
+    --colour-1: hsl(209 50% 10%);
+    --clr-card-bg: hsl(209 50% 5%);
+    --colour-3: hsl(209 50% 90%);
+    --conversations: hsl(209 50% 80%);
+	--blur-bg: hsl(209 60% 5%);
 }
 
-:root:has(#grey:checked) {
-    --colour-1: hsl(179, 40%, 10%);
-    --clr-card-bg: hsl(179 40% 5%);
-    --colour-3: hsl(179 40% 90%);
-    --conversations: hsl(109 40% 80%);	
-}
-
-:root:has(#brown:checked) {
-    --colour-1: hsl(59 40% 10%);
-    --clr-card-bg: hsl(59 40% 5%);
-    --colour-3: hsl(59 40% 90%);
-    --conversations: hsl(59 40% 80%);
-}
-
-:root:has(#green:checked) {
-    --colour-1: hsl(129, 40%, 10%);
-    --clr-card-bg: hsl(129 40% 5%);
-    --colour-3: hsl(129 40% 90%);
-    --conversations: hsl(129 40% 80%);
+:root:has(#pink:checked) {
+    --colour-1: hsl(310 50% 90%);
+    --clr-card-bg: hsl(310 50% 100%);
+    --colour-3: hsl(310 50% 15%);
+    --conversations: hsl(310 50% 25%);
 }
 
 :root:has(#blue:checked) {
-    --colour-1: hsl(239 40% 10%);
-    --clr-card-bg: hsl(239 40% 5%);
-    --colour-3: hsl(239 40% 90%);
-    --conversations: hsl(239 40% 80%);
+    --colour-1: hsl(209 50% 90%);
+    --clr-card-bg: hsl(209 50% 100%);
+    --colour-3: hsl(209 50% 15%);
+    --conversations: hsl(209 50% 25%);
+}
+
+:root:has(#green:checked) {
+    --colour-1: hsl(109 50% 90%);
+    --clr-card-bg: hsl(109 50% 100%);
+    --colour-3: hsl(109 50% 15%);
+    --conversations: hsl(109 50% 25%);
+}
+
+:root:has(#dark:checked) {
+    --colour-1: hsl(209 50% 10%);
+    --clr-card-bg: hsl(209 50% 5%);
+    --colour-3: hsl(209 50% 90%);
+    --conversations: hsl(209 50% 80%);
+	--blur-bg: hsl(209 60% 5%);
 }
