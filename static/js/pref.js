@@ -66,13 +66,13 @@ if (localStorage.getItem('isFunctionCalled') === 'true') {
   var div = document.getElementById("messages");
   div.innerHTML = `<div style="margin: auto; width: 50%; align-items: center;"><div class="user">
                 <img src="static/img/opnai.png" style="display: block; max-width: 100%;"><p>&nbsp;</p>
-				</div>
+		</div>
                 <div class="content"> 
                     <p><b>Hi!</b></p>
-					<p>&nbsp;</p>
-					<p>I am OpenAI ChatGPT bot.</p>
-					<p>&nbsp;</p>
-					<p>Happy to answer your questions.</p>
+		    <p>&nbsp;</p>
+		    <p>I am OpenAI ChatGPT bot.</p>
+		    <p>&nbsp;</p>
+		    <p>Happy to answer your questions.</p>
                 </div></div>`;
   setTimeout(function() {
     div.innerHTML = "";
