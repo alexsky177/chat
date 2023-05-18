@@ -1,4 +1,4 @@
- document.addEventListener('keydown', function(event) { 
+document.addEventListener('keydown', function(event) { 
 if ((event.keyCode === 13 || event.which === 13) && !event.shiftKey) 
 { document.getElementById('send').click(); event.preventDefault(); } 
 });
@@ -34,7 +34,23 @@ document.querySelector(".mobile-sidebar").addEventListener("click", (event) => {
 
 var myDiv = document.getElementById("pR");
 myDiv.addEventListener("click", function() {
-  location.reload();
+  var savedMessages = localStorage.getItem("messages");
+  if (savedMessages) {
+   document.getElementById("messages").innerHTML = savedMessages;
+   var messages = document.getElementsByClassName("message");
+   var maxId = 0;
+   for (var i = 0; i < messages.length; i++) {
+   var message = messages[i];
+   var id = message.getAttribute("id");
+   if (id && id.startsWith("question-")) {
+     var num = parseInt(id.substring(9));
+     if (num > maxId) {
+         maxId = num;
+   }
+ }
+}
+qaIdx = maxId+1;
+  }
 });
 
 var toggleSwitch = document.getElementById("toggle-switch");
@@ -58,25 +74,35 @@ var toggleSwitch = document.getElementById("toggle-switch");
   } 
 });
 
+function savePage() {
+var messages = document.getElementById("messages").innerHTML;
+localStorage.setItem("messages", messages);
+var sDiv = document.getElementById("sMes");
+sDiv.innerHTML = `<p align="center">&uArr; Chat saved &uArr;<br>in this browser.<br> You can load it<br>by clicking the button.</p>`;
+    setTimeout(function() {
+      sDiv.innerHTML = "";
+    }, 5000);
+  }
+
 if (localStorage.getItem('isFunctionCalled') === 'true') {
   console.log('Function Called');
 } else {
   console.log('Call Function');
-		window.onload = function() {
-  var div = document.getElementById("messages");
-  div.innerHTML = `<div style="margin: auto; width: 50%; align-items: center;"><div class="user">
+  window.onload = function() {
+    var div = document.getElementById("messages");
+    div.innerHTML = `<div style="margin: auto; width: 50%; align-items: center;"><div class="user">
                 <img src="static/img/opnai.png" style="display: block; max-width: 100%;"><p>&nbsp;</p>
-		</div>
+        </div>
                 <div class="content"> 
                     <p><b>Hi!</b></p>
-		    <p>&nbsp;</p>
-		    <p>I am OpenAI ChatGPT bot.</p>
-		    <p>&nbsp;</p>
-		    <p>Happy to answer your questions.</p>
+                    <p>&nbsp;</p>
+                    <p>I am Open AI ChatGPT.</p>
+                    <p>&nbsp;</p>
+                    <p>I will gladly answer all questions.</p>
                 </div></div>`;
-  setTimeout(function() {
-    div.innerHTML = "";
-  }, 3000);
-}
+    setTimeout(function() {
+      div.innerHTML = "";
+    }, 3000);
+  }
   localStorage.setItem('isFunctionCalled', 'true');
 }
