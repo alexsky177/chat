@@ -5,19 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <title>ChatGPT free</title>
-		<meta name="description" content="ChatGPT demo">
+	<meta name="description" content="ChatGPT demo free">
         <meta property="og:title" content="ChatGPT">
         <meta property="og:image" content="https://openai.com/content/images/2022/11/ChatGPT.jpg">
         <link rel="stylesheet" href="static/css/style.css">
-		<link rel="stylesheet" href="static/css/googlecode.min.css">
+	<link rel="stylesheet" href="static/css/googlecode.min.css">
         <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
         <link rel="manifest" href="static/img/site.webmanifest">
-		<script src="static/js/icons.js"></script>
-		<script src="static/js/highlight.min.js"></script>
-		<script src="static/js/highlightjs-copy.min.js"></script>
-		<script>
+	<script src="static/js/icons.js"></script>
+	<script src="static/js/highlight.min.js"></script>
+	<script src="static/js/highlightjs-copy.min.js"></script>
+	<script>
             const user_image = `<img src="static/img/user.png" alt="User Avatar">`;
             const gpt_image = `<img src="static/img/gpt.png" alt="GPT Avatar">`;
         </script>
@@ -26,12 +26,14 @@
         <div class="gradient"></div>
         <div class="row">
             <div class="box conversations">
-                    <div class="info" style="cursor: pointer;" id="pR">
-                        <i class="fa-regular fa-circle-plus"></i>
-                        <span class="convo-title">New chat</span>
-			</div>
+                    <div class="bottom_buttons" id="pR">
+                       <button> 
+		<i class="fa-regular fa-upload">
+		</i><span>Load chat</span>
+		</button>
+		</div><div id="sMes" style="margin-top: -200px;"></div>
                       <div class="top">
-                    <div class="spinner"></div>
+                    <div class="spinner"></div>		
                 </div>
                 <div class="bottom_buttons">
                     <button onclick="cleanDynamicDiv()">
@@ -42,7 +44,7 @@
                         <i class="fa-regular fa-circle-info"></i>
                         <span class="convo-title">By: @<a href="https://github.com/alexsky177/chatgpt">alexsky</a><br>
                             Version: 0.0.3-beta<br>
-                            Release: 2023-05-17<br>
+                            Release: 2023-05-15<br>
                         </span>
                     </div>
                 </div>
@@ -64,15 +66,19 @@
                         </div>
                     </div>
               </div>
-	      <div class="buttons">
+	    <div class="bottom_buttons">
                     <div class="field">
                         <input type="checkbox" id="toggle-switch">
                         <label for="toggle-switch"></label>
                         <span class="about">Change theme</span>
-                    </div>
+						 <button onclick="savePage()" style="width:175px; margin-left:10px;">
+                        <i class="fa-regular fa-floppy-disk fa-lg"></i>
+                        <span>Save chat</span>
+						</button>
+					</div>
                     <div class="field" style="display:none">
                         <select name="model" id="model">
-			<option value="" selected>Model</option>
+			 <option value="" selected>Model</option>
                             <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
                             <option value="gpt-3.5-turbo-0301">gpt-3.5-turbo-0301</option>
 			    <option value="gpt-4">gpt-4</option>         
@@ -90,9 +96,9 @@
                             <option value="gpt-evil-1.0">evil 1.0</option>
                         </select>
                     </div>
-		    <div class="field" style="display:none">
-		    <select name="temperature" id="temperature">
-		    <option value="" selected>Temperature</option>
+		<div class="field" style="display:none">
+		<select name="temperature" id="temperature">
+		<option value="" selected>Temperature</option>
                             <option value="0.5">0.5</option>
                             <option value="0.6">0.6</option>
                             <option value="0.7">0.7</option>
@@ -100,9 +106,9 @@
                             <option value="0.9">0.9</option>
                             <option value="1.0">1.0</option>
                         </select>
-			</div>
-			<div class="field" style="display:none">
-			<form class="color-picker">
+		       </div>
+		    <div class="field" style="display:none">
+		   <form class="color-picker">
                     <fieldset>
                         <label for="light" class="visually-hidden">Light</label>
                         <input type="radio" title="light" name="theme" id="light" checked>
@@ -110,7 +116,7 @@
                         <input type="radio" title="dark" id="dark" name="theme">
                     </fieldset>
                     </form>
-		</div>
+		  </div>
                </div>
             </div>
         </div>
