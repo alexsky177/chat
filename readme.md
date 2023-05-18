@@ -36,4 +36,5 @@ You can see interface on screenshots files:
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.jpg?raw=true" alt="chatgpt php"/>
 
-Last update - add option to save chat.
+Last update - added option to save chat. 
+It is bound to the client's browser by localStorage.
