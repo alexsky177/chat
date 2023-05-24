@@ -66,7 +66,7 @@ function sendMessage() {
 
     input.value = '';
     input.disabled = true;
-	stop_generating.classList.remove(`stop_generating-hidden`);
+    stop_generating.classList.remove(`stop_generating-hidden`);
     adjustInputHeight();
 
     typingTimer = setInterval(typingWords, 50);
@@ -105,6 +105,18 @@ function getAnswer(inputValue){
     stopBtn.addEventListener("click", () => {
     eventSource.close();
     contentEnd = true;
+    clearInterval(typingTimer);
+    answerContent = '';
+    answerWords = [];
+    answers = [];
+    typingIdx = 0;
+    contentIdx = 0;
+    contentEnd = false;
+    input.disabled = false;
+    typing = false;
+    document.getElementById(`gpt_${qaIdx}`).innerHTML += ` [aborted]`;
+    qaIdx += 1;
+    stop_generating.classList.add(`stop_generating-hidden`);
     console.log((new Date().getTime()), 'answer stopped');
     });
 	 
@@ -167,7 +179,7 @@ function typingWords(){
 	
     answerContent += content;
 	
-	answers[qaIdx].innerHTML = `
+    answers[qaIdx].innerHTML = `
     <div class="user">
     ${gpt_image}
     <i class="fa-regular fa-phone-arrow-down-left"></i>
