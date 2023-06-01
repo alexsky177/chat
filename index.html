@@ -3,128 +3,124 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <title>ChatGPT free</title>
-	<meta name="description" content="ChatGPT demo free">
-        <meta property="og:title" content="ChatGPT">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+        <meta name="description" content="A conversational ChatGPT that listens, learns, and challenges">
+        <meta property="og:title" content="ChatGPT light">
         <meta property="og:image" content="https://openai.com/content/images/2022/11/ChatGPT.jpg">
-        <link rel="stylesheet" href="static/css/style.css">
-	<link rel="stylesheet" href="static/css/googlecode.min.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png">
-        <link rel="manifest" href="static/img/site.webmanifest">
-	<script src="static/js/icons.js"></script>
-	<script src="static/js/highlight.min.js"></script>
-	<script src="static/js/highlightjs-copy.min.js"></script>
-	<script>
-            const user_image = `<img src="static/img/user.png" alt="User Avatar">`;
-            const gpt_image = `<img src="static/img/gpt.png" alt="GPT Avatar">`;
+        <meta property="og:description" content="A conversational ChatGPT that listens, learns, and challenges">
+        <meta property="og:url" content="https://github.com/alexsky177/chatgpt">
+        <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/dracula.min.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
+        <script src="assets/js/icons.js"></script>
+        <script src="assets/js/chat.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/markdown-it@latest/dist/markdown-it.min.js"></script>
+        <script>
+            const user_image = `<img src="assets/img/user.png" alt="User Avatar">`;
+            const gpt_image = `<img src="assets/img/gpt.png" alt="GPT Avatar">`;
         </script>
+        <script src="assets/js/highlight.min.js"></script>
+        <script src="assets/js/highlightjs-copy.min.js"></script>
+        <script>window.conversation_id = `{{chat_id}}`</script>
+        <title>ChatGPT</title>
     </head>
     <body>
         <div class="gradient"></div>
         <div class="row">
             <div class="box conversations">
-                    <div class="bottom_buttons" id="pR">
-                       <button> 
-		<i class="fa-regular fa-upload">
-		</i><span>Load chat</span>
-		</button>
-		</div><div id="sMes" style="margin-top: -200px;"></div>
-                      <div class="top">
-                    <div class="spinner"></div>		
+                <div class="top">
+                    <button class="new_convo" onclick="new_conversation()">
+                        <i class="fa-regular fa-plus"></i>
+                        <span>New chat</span>
+                    </button>
+                    <div class="spinner"></div>
                 </div>
                 <div class="bottom_buttons">
-                    <button onclick="cleanDynamicDiv()">
+                    <button onclick="delete_conversations()">
                         <i class="fa-regular fa-trash"></i>
                         <span>Clean chat</span>
                     </button>
                     <div class="info">
                         <i class="fa-regular fa-circle-info"></i>
                         <span class="convo-title">By: @<a href="https://github.com/alexsky177/chatgpt">alexsky</a><br>
-                            Version: 0.0.3-beta<br>
-                            Release: 2023-05-15<br>
+                            Version: 1.0.1-beta<br>
+                            Release: 2023-05-31<br>
                         </span>
                     </div>
                 </div>
             </div>
             <div class="conversation">
                 <div class="stop_generating stop_generating-hidden">
-                       <button id="cancelButton">
+                      <button id="cancelButton" onclick="stopAnswer()">
                         <span>Stop</span>
                         <i class="fa-regular fa-stop"></i>
                     </button>
                 </div>
-		<div class="box" id="messages">
+                <div class="box" id="messages">
                 </div>
-		<div class="user-input">
+                <div class="user-input">
                     <div class="box input-box">
-                        <textarea id="message-input" placeholder="Ask me anything" style="white-space: pre-wrap;"></textarea>
-                        <div id="send" onclick="sendMessage()">
+                        <textarea id="message-input" placeholder="Ask me any question" cols="30" rows="10" style="white-space: pre-wrap;"></textarea>
+                        <div id="send-button">
                             <i class="fa-regular fa-paper-plane-top"></i>
                         </div>
                     </div>
-              </div>
-	    <div class="bottom_buttons">
-                    <div class="field">
-                        <input type="checkbox" id="toggle-switch">
-                        <label for="toggle-switch"></label>
-                        <span class="about">Change theme</span>
-						 <button onclick="savePage()" style="width:175px; margin-left:10px;">
-                        <i class="fa-regular fa-floppy-disk fa-lg"></i>
-                        <span>Save chat</span>
-						</button>
-					</div>
-                    <div class="field" style="display:none">
+                </div>
+                <div class="buttons">
+                     <div class="field">
                         <select name="model" id="model">
-			 <option value="" selected>Model</option>
-                            <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+						    <option value="gpt-3.5-turbo-0301">Model</option>
+                             <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
                             <option value="gpt-3.5-turbo-0301">gpt-3.5-turbo-0301</option>
-			    <option value="gpt-4">gpt-4</option>         
+							<option value="gpt-4">gpt-4</option>         
                             <option value="gpt-4-0314">gpt-4-0314</option>
+							<option value="gpt-4-32k">gpt-4-32k</option>
+							<option value="gpt-4-32k-0314">gpt-4-32k-0314</option>
                         </select>
                     </div>
-                    <div class="field" style="display:none">
-                        <select name="jailbreak" id="jailbreak">
-                            <option value="" selected>default</option>
-                            <option value="gpt-math-1.0">math 1.0</option>
-                            <option value="gpt-dude-1.0">dude 1.0</option>
-                            <option value="gpt-dan-1.0">dan 1.0</option>
-                            <option value="gpt-dan-2.0">dan 2.0</option>
-                            <option value="gpt-dev-2.0">dev 2.0</option>
-                            <option value="gpt-evil-1.0">evil 1.0</option>
-                        </select>
-                    </div>
-		<div class="field" style="display:none">
-		<select name="temperature" id="temperature">
-		<option value="" selected>Temperature</option>
+					 <div class="field">
+					     <select name="temperature" id="temperature">
+						    <option value="0.6">T&deg;</option>
+                            <option value="0.1">0.1</option>
+                            <option value="0.2">0.2</option>
+                            <option value="0.3">0.3</option>
+                            <option value="0.4">0.4</option>
                             <option value="0.5">0.5</option>
                             <option value="0.6">0.6</option>
                             <option value="0.7">0.7</option>
                             <option value="0.8">0.8</option>
                             <option value="0.9">0.9</option>
                             <option value="1.0">1.0</option>
+							<option value="1.1">1.1</option>
+							<option value="1.2">1.2</option>
+							<option value="1.3">1.3</option>
+							<option value="1.4">1.4</option>
+							<option value="1.5">1.5</option>
                         </select>
-		       </div>
-		    <div class="field" style="display:none">
-		   <form class="color-picker">
+					</div>
+                    <div class="field">
+                        <input type="checkbox" id="toggle-switch">
+                        <label for="toggle-switch"></label>
+                        <span class="about"></span>
+					</div>
+					<div class="field" style="display:none">
+					<form class="color-picker">
                     <fieldset>
                         <label for="light" class="visually-hidden">Light</label>
-                        <input type="radio" title="light" name="theme" id="light" checked>
+                        <input type="radio" title="light" name="theme" id="light">
                         <label for="dark" class="visually-hidden">Dark theme</label>
-                        <input type="radio" title="dark" id="dark" name="theme">
+                        <input type="radio" title="dark" id="dark" name="theme" checked>
                     </fieldset>
                     </form>
-		  </div>
+				 </div>	
                </div>
             </div>
         </div>
         <div class="mobile-sidebar">
             <i class="fa-solid fa-bars"></i>
         </div>
-	  <script src="static/js/marked.min.js"></script>
-	 <script src="static/js/chat.js"></script>
-   <script src="static/js/pref.js"></script>
-</body>
+    </body>
 </html>
