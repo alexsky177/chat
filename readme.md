@@ -14,7 +14,7 @@ https://codebeautify.org/javascript-obfuscator#
 7) Go to index.html by browser and enjoy.
 
 
-Used frontpage html and css from this project
+Used frontpage html, js and css from this project (with some mods)
 https://github.com/xtekky/chatgpt-clone
 
 Used Javascript Openai api request
