@@ -1,33 +1,23 @@
-Version ChatGPT 3.5 turbo
-
-Need PHP version 7 or 8.
+Version ChatGPT 3.5 turbo, 3.5 turbo 0301. version 4 not tested yet.
+May be work, may be not.
 
 1) Download and unzip arhiv. 
-2) Upload to web server via ftp client.
-3) Put your AI API key in file "chat.php". 
+3) Put your OpenAI AI API key in file "assets/js/chat.js" - line 10. 
  
-   $chat = new ChatGPT([
-   'api_key' => 'Your open ai api key ',
-]);
+const strIndex = "YOUR_API_KEY";
 
-If you want change text on the splash screen at first startup (it is shown to the user only once):
-
-3) Go to path static/js/pref.js,
-4) Change text if needed.
-
-
-4) Go to index.html by browser and enjoy.
+5) Make path /chat on your web server.
+6) Upload files to this directory.
+7) Go to index.html by browser and enjoy.
 
 
 Used frontpage html and css from this project
 https://github.com/xtekky/chatgpt-clone
 
+Used Javascript Openai api request
+https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla
 
-Used php classes from this project
-https://github.com/qiayue/php-openai-gpt-stream-chat-api-webui
-
-
-Work same as python version xtekky, but no have functions web search and choose model, temperature.
+Work same as python version xtekky, but no have functions web search and dev and other mods.
 
 Button web search changed to Light or Dark theme.
 
@@ -36,5 +26,6 @@ You can see interface on screenshots files:
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.jpg?raw=true" alt="chatgpt php"/>
 
-Last update - added option to save chat. 
-It is bound to the client's browser by localStorage.
+Last update - added converation. 
+Removed all php files.
+Changes path for assets files.
