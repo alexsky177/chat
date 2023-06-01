@@ -28,7 +28,8 @@ Can use Pyton or Node.js
 
 You can see interface on screenshots files:
 
-
+<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt"/>
+<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.jpg?raw=true" alt="chatgpt"/>
 
 Last update - added converation. 
 Removed all php files.
