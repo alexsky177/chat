@@ -1,4 +1,4 @@
-Version ChatGPT 3.5 turbo, 3.5 turbo 0301. version 4 not tested yet.
+Version ChatGPT 3.5 turbo, 3.5 turbo 0301. Version 4 not tested yet.
 May be work, may be not.
 
 1) Download and unzip arhiv. 
