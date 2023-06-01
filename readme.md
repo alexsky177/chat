@@ -21,6 +21,11 @@ Work same as python version xtekky, but no have functions web search and dev and
 
 Button web search changed to Light or Dark theme.
 
+You can this app local on your home or job computer.
+How to install localhost:
+https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost
+Can use Pyton or Node.js
+
 You can see interface on screenshots files:
 
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.jpg?raw=true" alt="chatgpt php"/>
