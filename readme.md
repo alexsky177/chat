@@ -30,7 +30,7 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost
 1) Install Pyton. https://www.python.org/
 2) Make directory /chat
 3) Put index.html and assets files here.
-4) On Windows command line cd chat, then python3 -m http.server
+4) On Windows command line `cd chat`, then `python3 -m http.server`.
 5) Open your browser http://localhost:8000
 6) Use program on your local computer.
 
