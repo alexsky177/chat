@@ -21,7 +21,7 @@ Work same as python version xtekky, but no have functions web search and dev and
 
 Button web search changed to Light or Dark theme.
 
-You can this app local on your home or job computer.
+You can run this sie local on your home or job computer.
 How to install localhost:
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost
 Can use Pyton or Node.js
