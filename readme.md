@@ -21,10 +21,15 @@ Work same as python version xtekky, but no have functions web search and dev and
 
 Button web search changed to Light or Dark theme.
 
-You can run this sie local on your home or job computer.
+You can run this app local on your home or job computer.
 How to install localhost:
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost
-Can use Pyton or Node.js
+1) Install Pyton. https://www.python.org/
+2) Make directory /chat
+3) Put index.html and assets files here.
+4) On Windows command line cd chat, then python3 -m http.server
+5) Open your browser http://localhost:8000
+6) Use program.
 
 You can see interface on screenshots files:
 
