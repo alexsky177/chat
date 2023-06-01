@@ -6,6 +6,9 @@ May be work, may be not.
  
 const strIndex = "YOUR_API_KEY";
 
+Also you can use Obfuscator to hide your api key for security reason.
+https://codebeautify.org/javascript-obfuscator#
+
 5) Make path /chat on your web server.
 6) Upload files to this directory.
 7) Go to index.html by browser and enjoy.
