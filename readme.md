@@ -3,6 +3,7 @@
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <p>&#10149; Download ZIP or use git command.</p> 
+<p>&#10149; Get your OpenAi key - https://platform.openai.com/account/api-keys</p>
 <p>&#10149; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
 <p>&#10149; Make path <code>/chat</code> on your web server.</p>
 <p>&#10149; Upload files to this directory.</p>
