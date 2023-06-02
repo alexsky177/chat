@@ -32,7 +32,7 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <div>
 On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python3 -m http.server</code></pre></div>
 <ol>
-<> Open in browser http://localhost:8000</li>
+<li> Open in browser http://localhost:8000</li>
 <li> Use program on your local computer.</li>
 </ol>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
