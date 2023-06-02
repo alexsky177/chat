@@ -4,8 +4,9 @@
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <ol>
 <li> Download ZIP or use git clone.</li> 
-<li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.</li> 
-<li>`const strIndex = "YOUR_API_KEY";`</li>
+<li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.<br> 
+code>const strIndex = "YOUR_API_KEY";</code></li>
+</ol>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <ul class="contains-task-list">
