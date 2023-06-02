@@ -27,8 +27,11 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <ul class="contains-task-list">
 <li>Install Pyton - https://www.python.org</li>
 <li>Сreate a directory chat</li>
-<li> Put index.html and assets files here</li>
-<li>On the Windows command line or in the Mac terminal, type <code>cd chat</code> then<code>python3 -m http.server</code></li>
+<li>Put index.html and assets files here</li>
+</ul>
+<div>
+On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python3 -m http.server</code></pre></div>
+<ul>
 <li> Open in browser http://localhost:8000</li>
 <li> Use program on your local computer.</li>
 </ul>
