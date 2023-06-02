@@ -8,7 +8,7 @@
 <p>&#10149; Make path <code>/chat</code> on your web server.</p>
 <p>&#10149; Upload files to this directory.</p>
 <p>&#10149; Type in the browser your address <code>https://your-website.com/chat/</code> and enjoy.</p>
-<p>If you want run this script from another path (not chat) - change <code>chat</code> to your name in line 302, 311, 485 chat.js file.</p>
+<p>&#9733; If you want run this script from another path (not chat) - change <code>chat</code> to your name in line 302, 311, 485 chat.js file.</p>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
