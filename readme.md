@@ -1,7 +1,7 @@
 <h1>ChatGPT - JavaScript clone</h1>
 <hr>
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
- <em>Version GPT 4 has not been tested yet.</em></p><blockquote>
+ <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 
 1) Download and unzip arhiv. 
 3) Put your OpenAI AI API key in file "assets/js/chat.js" - line 10. 
