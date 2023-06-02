@@ -2,21 +2,21 @@
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <hr>
-<ul>
+<ul class="contains-task-list">
  <li> Download ZIP or use git clone.</li> 
  <li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.</li> 
  <li>const strIndex = "YOUR_API_KEY";</li>
 </ul>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
+<ul class="contains-task-list">
 <li> Make path /chat on your web server.</li>
 <li> Upload files to this directory.</li>
 <li> Go to index.html by browser and enjoy.</li>
 </ul>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
 https://github.com/xtekky/chatgpt-clone</p>
-<p>
-Used Javascript Openai api request<br>
+<p>Used Javascript Openai api request<br>
 https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla</p>
 <p>All functions are preserved, except for the web search - instead, a change in theme from dark to light has been made. Added temperature change function.</p>
 <h2>Run on localhost</h2>
