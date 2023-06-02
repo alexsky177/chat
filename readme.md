@@ -2,11 +2,11 @@
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
-<p>&#9998; Download ZIP or use git command.</p> 
-<p>&#9998; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
-<p>&#9998; Make path <code>/chat</code> on your web server.</p>
-<p>&#9998; Upload files to this directory.</p>
-<p>&#9998; Go to index.html by browser and enjoy.</p>
+<p>&#9998; - Download ZIP or use git command.</p> 
+<p>&#9998; - Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
+<p>&#9998; - Make path <code>/chat</code> on your web server.</p>
+<p>&#9998; - Upload files to this directory.</p>
+<p>&#9998; - Go to index.html by browser and enjoy.</p>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
@@ -27,7 +27,7 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <div>
 On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python3 -m http.server</code></pre></div>
 <ul>
-<li> Open in browser http://localhost:8000</li>
+ <li> Open in browser <code>http://localhost:8000</code></li>
 <li> Use app on your local computer.</li>
 </ul>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
