@@ -17,7 +17,7 @@ https://www.builder.io/blog/stream-ai-javascript</p>
 <h2>Run on localhost</h2>
 <p>This program runs on a laptop or desktop computer locally from a folder.</p>
 <h3>How to install localhost</h3>
-<p>Read this stacoverflow solution<br>
+<p>Read this stackoverflow solution<br>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
 <ol>
 <li>Install Pyton - https://www.python.org</li>
