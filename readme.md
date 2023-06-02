@@ -26,7 +26,7 @@ https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla</p>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
 <ul class="contains-task-list">
 <li>Install Pyton - https://www.python.org</li>
-<li>Сreate a directory chat</li>
+<li>Сreate a directory `chat`</li>
 <li>Put index.html and assets files here</li>
 </ul>
 <div>
