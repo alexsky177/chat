@@ -4,7 +4,7 @@
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <p>
 &#9745; Download ZIP or use git clone.<br> 
-&#9745; Put your OpenAI AI API key in file <code>assets/js/chat.js<code> - line 10.<br> 
+&#9745; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10.<br> 
 <code>const strIndex = "YOUR_API_KEY";</code><br>
 &#9745; Make path <code>/chat</code> on your web server.<br>
 &#9745; Upload files to this directory.<br>
