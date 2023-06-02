@@ -9,11 +9,11 @@
 </ol>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
-<ul class="contains-task-list">
-<li> Make path /chat on your web server.</li>
+<ol>
+<li> Make path <code>/chat</code> on your web server.</li>
 <li> Upload files to this directory.</li>
 <li> Go to index.html by browser and enjoy.</li>
-</ul>
+</ol>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
 https://github.com/xtekky/chatgpt-clone</p>
 <p>Used Javascript Openai api request<br>
@@ -24,17 +24,17 @@ https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla</p>
 <h3>How to install localhost</h3>
 <p>Read this stacoverflow solution<br>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
-<ul class="contains-task-list">
+<ol>
 <li>Install Pyton - https://www.python.org</li>
 <li>Сreate a directory `chat`</li>
 <li>Put index.html and assets files here</li>
-</ul>
+</ol>
 <div>
 On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python3 -m http.server</code></pre></div>
-<ul>
-<li> Open in browser http://localhost:8000</li>
+<ol>
+<> Open in browser http://localhost:8000</li>
 <li> Use program on your local computer.</li>
-</ul>
+</ol>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
 <p><em>Last update - added converation.<br> 
 Removed all php files.<br>
