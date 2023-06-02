@@ -2,17 +2,14 @@
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
-<p>
-&#9745; Download ZIP or use git clone.<br> 
-&#9745; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10.<br> 
-<code>const strIndex = "YOUR_API_KEY";</code><br>
-&#9745; Make path <code>/chat</code> on your web server.<br>
-&#9745; Upload files to this directory.<br>
-&#9745; Go to index.html by browser and enjoy.<br>
-</p>
+<p>&#9745; Download ZIP or use git clone.</p> 
+<p>&#9745; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10.</p> 
+<p><code>const strIndex = "YOUR_API_KEY";</code></p>
+<p>&#9745; Make path <code>/chat</code> on your web server.</p>
+<p>&#9745; Upload files to this directory.</p>
+<p>&#9745; Go to index.html by browser and enjoy.</p>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
-<p>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
 https://github.com/xtekky/chatgpt-clone</p>
 <p>Used Javascript Openai api request<br>
