@@ -5,7 +5,7 @@
 <ol>
 <li> Download ZIP or use git clone.</li> 
 <li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.<br> 
-code>const strIndex = "YOUR_API_KEY";</code></li>
+<code>const strIndex = "YOUR_API_KEY";</code></li>
 </ol>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
