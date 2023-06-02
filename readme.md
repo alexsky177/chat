@@ -1,4 +1,4 @@
-<h1>ChatGPT - JavaScript clone<h1>
+<h1>ChatGPT - JavaScript clone</h1>
 <hr>
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p><blockquote>
