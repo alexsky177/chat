@@ -7,7 +7,8 @@
 <p>&#10149; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
 <p>&#10149; Make path <code>/chat</code> on your web server.</p>
 <p>&#10149; Upload files to this directory.</p>
-<p>&#10149; Type in the browser this address <code>https://yourwebsite.com/chat/</code> and enjoy.</p>
+<p>&#10149; Type in the browser your address <code>https://your-website.com/chat/</code> and enjoy.</p>
+<p>If you want run this script from another path (not chat) - change <code>chat</code> to your name in line 302, 311, 485 chat.js file.</p>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
