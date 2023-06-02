@@ -25,8 +25,8 @@ https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla</p>
 <p>Read this stacoverflow solution<br>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
 <ul class="contains-task-list">
-<li> Install Pyton - https://www.python.org/<li>
-<li> Make directory /chat</li>
+<li>Install Pyton - https://www.python.org</li>
+<li>Сreate a directory chat</li>
 <li> Put index.html and assets files here</li>
 <li>On the Windows command line or in the Mac terminal, type <code>cd chat</code> then<code>python3 -m http.server</code></li>
 <li> Open in browser http://localhost:8000</li>
@@ -35,4 +35,4 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
 <p><em>Last update - added converation.<br> 
 Removed all php files.<br>
- Changes path for assets files.</em></p>
+Changes path for assets files.</em></p>
