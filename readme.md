@@ -2,7 +2,7 @@
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
-<p>&sect; Download ZIP or use git command.</p> 
+<p>&#123;; Download ZIP or use git command&#125</p> 
 <p>&sect; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
 <p>&sect; Make path <code>/chat</code> on your web server.</p>
 <p>&sect; Upload files to this directory.</p>
