@@ -33,4 +33,4 @@ On the Windows command line or in the Mac terminal, type <pre><code>cd chat</cod
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
 <p><em>Last update - added convertations.<br> 
 Removed all php files.<br>
-Changes path for assets files.</em></p>
+Changed path for assets files.</em></p>
