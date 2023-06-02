@@ -3,8 +3,7 @@
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <p>&#9998; Download ZIP or use git clone.</p> 
-<p>&#9998; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10.</p> 
-<p><code>const strIndex = "YOUR_API_KEY";</code></p>
+<p>&#9998; Put your OpenAI AI API key in file <code>assets/js/chat.js</code> - line 10 <code>const strIndex = "YOUR_API_KEY";</code></p>
 <p>&#9998; Make path <code>/chat</code> on your web server.</p>
 <p>&#9998; Upload files to this directory.</p>
 <p>&#9998; Go to index.html by browser and enjoy.</p>
@@ -22,7 +21,7 @@ https://www.builder.io/blog/stream-ai-javascript</p>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
 <ol>
 <li>Install Pyton - https://www.python.org</li>
-<li>Сreate a directory `chat`</li>
+<li>Сreate a directory <code>chat</code></li>
 <li>Put index.html and assets files here</li>
 </ol>
 <div>
