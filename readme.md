@@ -2,9 +2,10 @@
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
- <p> Download ZIP or use git clone.</p> 
- <p> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.</p> 
- <p>const strIndex = "YOUR_API_KEY";</p>
+<ol>
+<li> Download ZIP or use git clone.</li> 
+<li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.</li> 
+<li>`const strIndex = "YOUR_API_KEY";`</li>
 <p>Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <ul class="contains-task-list">
