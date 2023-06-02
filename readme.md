@@ -1,7 +1,7 @@
 <h1>ChatGPT - JavaScript clone</h1>
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
-<hr>
+<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <ul class="contains-task-list">
  <li> Download ZIP or use git clone.</li> 
  <li> Put your OpenAI AI API key in file "assets/js/chat.js" - line 10.</li> 
@@ -24,18 +24,17 @@ https://github.com/gopinav/ai/tree/main/examples/javascript-vanilla</p>
 <h3>How to install localhost</h3>
 <p>Read this stacoverflow solution<br>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
-1) Install Pyton. https://www.python.org/
-2) Make directory /chat
-3) Put index.html and assets files here.
-4) On Windows command line `cd chat`, then `python3 -m http.server`.
-5) Open your browser http://localhost:8000
-6) Use program on your local computer.
-
-You can see interface on screenshots files:
-
+<ul class="contains-task-list">
+<li> Install Pyton.<br>https://www.python.org/<li>
+<li> Make directory /chat</li>
+<li> Put index.html and assets files here</li>
+<li>On the Windows command line or in the Mac terminal, type<br>
+  <code>cd chat</code><br>then<br><code>python3 -m http.server</code></li>
+<li> Open in browser http://localhost:8000</li>
+<li> Use program on your local computer.</li>
+</ul>
 <img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
-<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 
-Last update - added converation. 
-Removed all php files.
-Changes path for assets files.
+<p><em>Last update - added converation.<br> 
+Removed all php files.<br>
+ Changes path for assets files.</em></p>
