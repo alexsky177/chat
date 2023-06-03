@@ -751,41 +751,8 @@ a:-webkit-any-link {
     --radio-color: gray;
 }
 
-.color-picker input[type="radio"]#pink {
-    --radio-color: pink;
-}
-
-.color-picker input[type="radio"]#blue {
-    --radio-color: blue;
-}
-
-.color-picker input[type="radio"]#green {
-    --radio-color: green;
-}
-
 .color-picker input[type="radio"]#dark {
     --radio-color: #232323;
-}
-
-.pink {
-    --colour-1: hsl(310 50% 90%);
-    --clr-card-bg: hsl(310 50% 100%);
-    --colour-3: hsl(310 50% 15%);
-    --conversations: hsl(310 50% 25%);
-}
-
-.blue {
-    --colour-1: hsl(209 50% 90%);
-    --clr-card-bg: hsl(209 50% 100%);
-    --colour-3: hsl(209 50% 15%);
-    --conversations: hsl(209 50% 25%);
-}
-
-.green {
-    --colour-1: hsl(109 50% 90%);
-    --clr-card-bg: hsl(109 50% 100%);
-    --colour-3: hsl(109 50% 15%);
-    --conversations: hsl(109 50% 25%);
 }
 
 .dark {
@@ -794,27 +761,6 @@ a:-webkit-any-link {
     --colour-3: hsl(209 50% 90%);
     --conversations: hsl(209 50% 80%);
 	--blur-bg: hsl(209 60% 5%);
-}
-
-:root:has(#pink:checked) {
-    --colour-1: hsl(310 50% 90%);
-    --clr-card-bg: hsl(310 50% 100%);
-    --colour-3: hsl(310 50% 15%);
-    --conversations: hsl(310 50% 25%);
-}
-
-:root:has(#blue:checked) {
-    --colour-1: hsl(209 50% 90%);
-    --clr-card-bg: hsl(209 50% 100%);
-    --colour-3: hsl(209 50% 15%);
-    --conversations: hsl(209 50% 25%);
-}
-
-:root:has(#green:checked) {
-    --colour-1: hsl(109 50% 90%);
-    --clr-card-bg: hsl(109 50% 100%);
-    --colour-3: hsl(109 50% 15%);
-    --conversations: hsl(109 50% 25%);
 }
 
 :root:has(#dark:checked) {
