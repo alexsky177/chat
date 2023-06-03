@@ -1,7 +1,3 @@
-const query = (obj) =>
-  Object.keys(obj)
-    .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(obj[k]))
-    .join("&");
 const markdown = window.markdownit();
 const message_box = document.getElementById(`messages`);
 const message_input = document.getElementById(`message-input`);
@@ -11,7 +7,6 @@ const stop_generating = document.querySelector(`.stop_generating`);
 const send_button = document.querySelector(`#send-button`);
 let prompt_lock = false;
 const API_URL = "https://api.openai.com/v1/chat/completions";
-const strIndex = "YOUR_API_KEY";
 
 var model = "gpt-3.5-turbo-0301";
 var temperatureString = "0.6°";
@@ -37,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 hljs.addPlugin(new CopyButtonPlugin());
+
+const chat_id = conversation_id;
 
 function resizeTextarea(textarea) {
 	textarea.style.height = '80px';
@@ -145,10 +142,8 @@ const ask_gpt = async (message) => {
 				presence_penalty: 0,
 				stream: true, // For streaming responses
 			}),
-			signal: window.controller.signal,
-			conversation: await get_conversation(window.conversation_id),
 		});
-		console.log('Connected API');
+		console.log('connected');
 		// Read the response as a stream of data
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder("utf-8");
@@ -160,7 +155,6 @@ const ask_gpt = async (message) => {
 			if (done) {
 				break;
 			}
-
 			// Massage and parse the chunk of data 
 			const chunk = decoder.decode(value);
 			const lines = chunk.split("\n");
@@ -182,7 +176,7 @@ const ask_gpt = async (message) => {
 					text += content;
 				}
 			}
-
+			
 			document.getElementById(`gpt_${window.token}`).innerHTML =
 				markdown.render(text);
 			document.querySelectorAll('code:not(p code):not(li code)').forEach((el) => {
@@ -303,7 +297,7 @@ const delete_conversation = async (conversation_id) => {
 };
 
 const set_conversation = async (conversation_id) => {
-	history.pushState({}, null, `/chat/${conversation_id}`);
+	history.pushState({}, null, `/${path}/${conversation_id}`);
 	window.conversation_id = conversation_id;
 
 	await clear_conversation();
@@ -312,7 +306,7 @@ const set_conversation = async (conversation_id) => {
 };
 
 const new_conversation = async () => {
-	history.pushState({}, null, `/chat/`);
+	history.pushState({}, null, `/${path}/`);
 	window.conversation_id = uuid();
 
 	await clear_conversation();
@@ -486,7 +480,7 @@ window.onload = async () => {
 	}, 1);
 
 	if (!window.location.href.endsWith(`#`)) {
-		if (/\/chat\/.+/.test(window.location.href)) {
+		if (/\/${path}\/.+/.test(window.location.href)) {
 			await load_conversation(window.conversation_id);
 		}
 	}
@@ -499,39 +493,18 @@ window.onload = async () => {
 			await handle_ask();
 		} else {
 			message_input.style.removeProperty("height");
-			message_input.style.height = message_input.scrollHeight + 4 + "px";
+			message_input.style.height = message_input.scrollHeight + 2 + "px";
 		}
 	});
 
 	send_button.addEventListener(`click`, async () => {
-		console.log("clicked send");
+		console.log("message sent");
 		if (prompt_lock) return;
 		await handle_ask();
 	});
 
 	register_settings_localstorage();
 };
-
-var toggleSwitch = document.getElementById("toggle-switch");
-toggleSwitch.addEventListener("change", function() {
-	if (toggleSwitch.checked) {
-		document.getElementById("light").checked = true;
-		var oldlink = document.getElementsByTagName("link").item(1);
-		var newlink = document.createElement("link");
-		newlink.setAttribute("rel", "stylesheet");
-		newlink.setAttribute("type", "text/css");
-		newlink.setAttribute("href", "assets/css/googlecode.min.css");
-		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-	} else {
-		document.getElementById("dark").checked = true;
-		var oldlink = document.getElementsByTagName("link").item(1);
-		var newlink = document.createElement("link");
-		newlink.setAttribute("rel", "stylesheet");
-		newlink.setAttribute("type", "text/css");
-		newlink.setAttribute("href", "assets/css/dracula.min.css");
-		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-	}
-});
 
 document.querySelector(".mobile-sidebar").addEventListener("click", (event) => {
 	const sidebar = document.querySelector(".conversations");
@@ -584,3 +557,24 @@ const load_settings_localstorage = async () => {
 		}
 	});
 };
+
+var toggleSwitch = document.getElementById("toggle-switch");
+toggleSwitch.addEventListener("change", function() {
+	if (toggleSwitch.checked) {
+		document.getElementById("light").checked = true;
+		var oldlink = document.getElementsByTagName("link").item(1);
+		var newlink = document.createElement("link");
+		newlink.setAttribute("rel", "stylesheet");
+		newlink.setAttribute("type", "text/css");
+		newlink.setAttribute("href", "assets/css/googlecode.min.css");
+		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+	} else {
+		document.getElementById("dark").checked = true;
+		var oldlink = document.getElementsByTagName("link").item(1);
+		var newlink = document.createElement("link");
+		newlink.setAttribute("rel", "stylesheet");
+		newlink.setAttribute("type", "text/css");
+		newlink.setAttribute("href", "assets/css/dracula.min.css");
+		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+	}
+});
