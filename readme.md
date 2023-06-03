@@ -5,7 +5,7 @@
 <p>&#10149; Download ZIP or use git command.</p> 
 <p>&#10149; Get your OpenAi key - https://platform.openai.com/account/api-keys</p>
 <p>&#10149; Open config.js and fill  <code>const strIndex = "YOUR_API_KEY";</code></p>
-<p>&#10149; If you want to change path - <code>const path = "chat";</code></p>
+<p>&#10149; If you want to change path - <code>const path = "chat";</code> - change it.</p>
 <p>&#10149; Make path <code>/chat</code> or any other on your web server.</p>
 <p>&#10149; Upload files to this directory.</p>
 <p>&#10149; Type in the browser your address <code>https://your-website.com/chat/</code> and enjoy.</p>
