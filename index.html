@@ -16,6 +16,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
         <link rel="manifest" href="assets/img/site.webmanifest">
         <script src="assets/js/icons.js"></script>
+		<script src="config.js"></script>
         <script src="assets/js/chat.js" defer></script>
 		<script src="https://cdn.jsdelivr.net/npm/markdown-it@latest/dist/markdown-it.min.js"></script>
         <script>
@@ -24,7 +25,7 @@
         </script>
         <script src="assets/js/highlight.min.js"></script>
         <script src="assets/js/highlightjs-copy.min.js"></script>
-        <script>window.conversation_id = `{{chat_id}}`</script>
+        <script>window.conversation_id = Array.from(crypto.getRandomValues(new Uint8Array(16))).map(b => b.toString(36)).join('-');</script>
         <title>ChatGPT</title>
     </head>
     <body>
@@ -46,8 +47,8 @@
                     <div class="info">
                         <i class="fa-regular fa-circle-info"></i>
                         <span class="convo-title">By: @<a href="https://github.com/alexsky177/chatgpt">alexsky</a><br>
-                            Version: 1.0.1-beta<br>
-                            Release: 2023-05-31<br>
+                            Version: 1.0.2-beta<br>
+                            Release: 2023-06-04<br>
                         </span>
                     </div>
                 </div>
