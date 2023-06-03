@@ -9,7 +9,7 @@
 <p>&#10149; Make path <code>/chat</code> or any other on your web server.</p>
 <p>&#10149; Upload files to this directory.</p>
 <p>&#10149; Type in the browser your address <code>https://your-website.com/chat/</code> and enjoy.</p>
-<p>&#10149;<p>Also you can use Obfuscator to hide your api key for security reason.<br>
+<p>&#10149; Also you can use Obfuscator to hide your api key for security reason.<br>
 https://codebeautify.org/javascript-obfuscator</p>
 <p>Used frontpage html, js and css from this project (with some mods)<br>
 https://github.com/xtekky/chatgpt-clone</p>
