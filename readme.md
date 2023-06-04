@@ -21,10 +21,12 @@ https://www.builder.io/blog/stream-ai-javascript</p>
 <h3>How to install localhost</h3>
 <p>Read this stackoverflow solution<br>
 https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</p>
+<p>You can use Node.js or Python server.</p>
+<p>How to install app on Pyton:</p>
 <ol>
 <li>Install Pyton - https://www.python.org</li>
 <li>Сreate a directory <code>chat</code></li>
- <li>Change path in congig.js to <code>./</code></li>
+ <li>Change path in config.js to <code>./</code></li>
 <li>Put index.html and assets files here</li>
 </ol>
 <div>
