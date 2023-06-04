@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 hljs.addPlugin(new CopyButtonPlugin());
 
-const chat_id = conversation_id;
-
 function resizeTextarea(textarea) {
 	textarea.style.height = '80px';
 	textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
@@ -49,8 +47,11 @@ message_input.addEventListener("blur", () => {
 });
 
 const delete_conversations = async () => {
-	localStorage.clear();
-	await new_conversation();
+    const confirmed = confirm("Are you sure you want to delete all conversations?");
+    if (confirmed) {
+        localStorage.clear();
+        await new_conversation();
+    }
 };
 
 const handle_ask = async () => {
