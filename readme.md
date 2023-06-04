@@ -24,10 +24,11 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <ol>
 <li>Install Pyton - https://www.python.org</li>
 <li>Сreate a directory <code>chat</code></li>
+ <li>Change path in congig.js to <code>./</code></li>
 <li>Put index.html and assets files here</li>
 </ol>
 <div>
-On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python3 -m http.server</code></pre></div>
+On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python -m http.server</code></pre></div>
 <ul>
  <li> Open in browser <code>http://192.168.1.52:8000/</code></li>
  </ul>
