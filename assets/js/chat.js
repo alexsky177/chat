@@ -6,7 +6,6 @@ const spinner = box_conversations.querySelector(".spinner");
 const stop_generating = document.querySelector(`.stop_generating`);
 const send_button = document.querySelector(`#send-button`);
 let prompt_lock = false;
-const API_URL = "https://api.openai.com/v1/chat/completions";
 
 var model = "gpt-3.5-turbo-0301";
 var temperatureString = "0.6°";
@@ -144,7 +143,7 @@ const ask_gpt = async (message) => {
 				stream: true, // For streaming responses
 			}),
 		});
-		console.log('connected');
+		console.log('Connected API');
 		// Read the response as a stream of data
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder("utf-8");
@@ -480,12 +479,6 @@ window.onload = async () => {
 		load_conversations(20, 0);
 	}, 1);
 
-	if (!window.location.href.endsWith(`#`)) {
-		if (/\/${path}\/.+/.test(window.location.href)) {
-			await load_conversation(window.conversation_id);
-		}
-	}
-
 	message_input.addEventListener(`keydown`, async (evt) => {
 		if (prompt_lock) return;
 		if (evt.keyCode === 13 && !evt.shiftKey) {
@@ -494,12 +487,12 @@ window.onload = async () => {
 			await handle_ask();
 		} else {
 			message_input.style.removeProperty("height");
-			message_input.style.height = message_input.scrollHeight + 2 + "px";
+			message_input.style.height = message_input.scrollHeight + 4 + "px";
 		}
 	});
 
 	send_button.addEventListener(`click`, async () => {
-		console.log("message sent");
+		console.log("clicked send");
 		if (prompt_lock) return;
 		await handle_ask();
 	});
