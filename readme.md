@@ -28,7 +28,7 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <li>Install Pyton - https://www.python.org</li>
 <li>Сreate a directory <code>chat</code>.</li>
  <li>Change const path in config.js to <code>path = "";</code>.</li>
- <li>Change const root in config.js to <code>root = ".";</code> (just delete <code>//</code>).</li>
+ <li>Change const root in config.js to <code>root = ".";</code> ( just delete <code>//</code>).</li>
 <li>Put index.html and assets files here.</li>
 </ol>
 <div>
