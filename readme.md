@@ -26,10 +26,10 @@ https://stackoverflow.com/questions/38497334/how-to-run-html-file-on-localhost</
 <p>How to install app on Pyton:</p>
 <ol>
 <li>Install Pyton - https://www.python.org</li>
-<li>Сreate a directory <code>chat</code></li>
- <li>Change const path in config.js to <code>path = "";</code></li>
- <li>Change const root in config.js to <code>root = ".";</code></li>
-<li>Put index.html and assets files here</li>
+<li>Сreate a directory <code>chat</code>.</li>
+ <li>Change const path in config.js to <code>path = "";</code>.</li>
+ <li>Change const root in config.js to <code>root = ".";</code> (just delete <code>//</code>.</li>
+<li>Put index.html and assets files here.</li>
 </ol>
 <div>
 On the Windows command line or in the Mac terminal, type <pre><code>cd chat</code></pre> then<pre><code>python -m http.server</code></pre></div>
