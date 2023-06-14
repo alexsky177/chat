@@ -7,7 +7,7 @@ const stop_generating = document.querySelector(`.stop_generating`);
 const send_button = document.querySelector(`#send-button`);
 let prompt_lock = false;
 
-var model = "gpt-3.5-turbo-0301";
+var model = "gpt-3.5-turbo-0613";
 var temperatureString = "0.6°";
 var cleanedString = temperatureString.replace(/[^0-9\.]/g, '');
 var temperature = parseFloat(cleanedString);
