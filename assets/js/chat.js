@@ -125,15 +125,11 @@ const ask_gpt = async (message) => {
 		await new Promise((r) => setTimeout(r, 1000));
 		window.scrollTo(0, 0);
         
-        // Добавление нового вопроса в массив
         messageHistory.push(message);
-
-         // Если массив превышает 5 элемента, удалите самый старый элемент
         if (messageHistory.length > 5) {
         messageHistory.shift();
         }
 
-       // Отправка запроса с использованием сохраненных вопросов
        const postData = {
        model: model,
        temperature: temperature,
@@ -141,12 +137,10 @@ const ask_gpt = async (message) => {
        messages: []
        };
 
-       // Добавление сохраненных вопросов в запрос
        for (const message of messageHistory) {
        postData.messages.push({ role: "user", content: message });
        }
 
-       // Отправка данных на сервер
        const response = await fetch(API_URL, {
        signal: window.controller.signal,    
        method: "POST",   
