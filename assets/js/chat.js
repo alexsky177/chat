@@ -6,9 +6,10 @@ const spinner = box_conversations.querySelector(".spinner");
 const stop_generating = document.querySelector(`.stop_generating`);
 const send_button = document.querySelector(`#send-button`);
 let prompt_lock = false;
+const messageHistory = [];
 
-var model = "gpt-3.5-turbo-0613";
-var temperatureString = "0.6°";
+var model = "gpt-3.5-turbo-16k";
+var temperatureString = "0.5°";
 var cleanedString = temperatureString.replace(/[^0-9\.]/g, '');
 var temperature = parseFloat(cleanedString);
 
@@ -123,34 +124,45 @@ const ask_gpt = async (message) => {
 		window.scrollTo(0, 0);
 		await new Promise((r) => setTimeout(r, 1000));
 		window.scrollTo(0, 0);
+        
+        // Добавление нового вопроса в массив
+        messageHistory.push(message);
 
-		// Fetch the response from the OpenAI API with the signal from AbortController
-		const response = await fetch(API_URL, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${strIndex}`,
-			},
-			body: JSON.stringify({
-				model: model,
-				messages: [{
-					role: "user",
-					content: message
-				}],
-				temperature: temperature,
-				frequency_penalty: 0,
-				presence_penalty: 0,
-				stream: true, // For streaming responses
-			}),
-		});
+         // Если массив превышает 5 элемента, удалите самый старый элемент
+        if (messageHistory.length > 5) {
+        messageHistory.shift();
+        }
+
+       // Отправка запроса с использованием сохраненных вопросов
+       const postData = {
+       model: model,
+       temperature: temperature,
+       stream: true,
+       messages: []
+       };
+
+       // Добавление сохраненных вопросов в запрос
+       for (const message of messageHistory) {
+       postData.messages.push({ role: "user", content: message });
+       }
+
+       // Отправка данных на сервер
+       const response = await fetch(API_URL, {
+       signal: window.controller.signal,    
+       method: "POST",   
+       headers: {
+       "Content-Type": "application/json",
+       Authorization: `Bearer ${strIndex}`
+       },
+       body: JSON.stringify(postData)
+       })
 		console.log('Connected API');
 		// Read the response as a stream of data
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder("utf-8");
 		while (true) {
 			const {
-				done,
-				value
+				done, value
 			} = await reader.read();
 			if (done) {
 				break;
@@ -189,9 +201,10 @@ const ask_gpt = async (message) => {
 				top: message_box.scrollHeight,
 				behavior: "auto"
 			});
-		}
-
-		// if text contains :
+            
+        }
+        
+     	// if text contains :
 		if (
 			text.includes(
 				`instead. Maintaining this website and API costs a lot of money`
