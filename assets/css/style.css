@@ -339,7 +339,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-label {
+/*label {
     cursor: pointer;
     text-indent: -9999px;
     width: 50px;
@@ -354,9 +354,9 @@ label {
     position: relative;
     overflow: hidden;
     transition: 0.33s;
-}
+}*/
 
-label:after {
+/*label:after {
     content: "";
     position: absolute;
     top: 50%;
@@ -367,7 +367,7 @@ label:after {
     background: var(--colour-3);
     border-radius: 90px;
     transition: 0.33s;
-}
+}*/
 
 input:checked+label {
     background: var(--blur-border);
@@ -388,6 +388,8 @@ input:checked+label:after {
     height: fit-content;
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 100%;
     gap: 16px;
     padding-right: 15px
 }
@@ -584,7 +586,7 @@ ul {
 
     .field {
         width: fit-content;
-    }
+     }
 
     .mobile-sidebar {
         display: flex !important;
@@ -743,17 +745,20 @@ a:-webkit-any-link {
     background: #8b3dff; 
 }
 
-.color-picker input[type="radio"]:checked {
-    background-color: var(--radio-color);
+.color-picker input[type="checkbox"]:checked {
+  background-color: var(--radio-color);
 }
 
-.color-picker input[type="radio"]#light {
-    --radio-color: gray;
-}
-
-.color-picker input[type="radio"]#dark {
-    --radio-color: #232323;
-}
+  /* Style for the icons */
+  .fas {
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  /* Hide the moon icon initially */
+  #moon-icon {
+    display: none;
+  }
 
 .dark {
     --colour-1: hsl(209 50% 10%);
