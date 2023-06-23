@@ -1,3 +1,4 @@
+const query = (obj) => Object.keys(obj) .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(obj[k])) .join("&");
 const markdown = window.markdownit();
 const message_box = document.getElementById(`messages`);
 const message_input = document.getElementById(`message-input`);
@@ -9,7 +10,7 @@ let prompt_lock = false;
 const messageHistory = [];
 
 var model = "gpt-3.5-turbo-16k";
-var temperatureString = "0.5°";
+var temperatureString = "0.6°";
 var cleanedString = temperatureString.replace(/[^0-9\.]/g, '');
 var temperature = parseFloat(cleanedString);
 
@@ -103,8 +104,16 @@ const ask_gpt = async (message) => {
                 </div>
             </div>
         `;
+        
+        document.querySelectorAll('code:not(p code):not(li code)').forEach((el) => {
+		hljs.highlightElement(el);
+		el.classList.add('processed');
+        });
 
-		message_box.scrollTop = message_box.scrollHeight;
+		message_box.scrollTo({
+				top: message_box.scrollHeight,
+				behavior: "smooth"
+			});
 		window.scrollTo(0, 0);
 		await new Promise((r) => setTimeout(r, 500));
 		window.scrollTo(0, 0);
@@ -120,29 +129,38 @@ const ask_gpt = async (message) => {
             </div>
         `;
 
-		message_box.scrollTop = message_box.scrollHeight;
+		message_box.scrollTo({
+				top: message_box.scrollHeight,
+				behavior: "smooth"
+			});
 		window.scrollTo(0, 0);
 		await new Promise((r) => setTimeout(r, 1000));
 		window.scrollTo(0, 0);
         
         messageHistory.push(message);
-        if (messageHistory.length > 5) {
-        messageHistory.shift();
-        }
 
        const postData = {
        model: model,
        temperature: temperature,
        stream: true,
        messages: []
-       };
+       }; 
+
+       let isFirstMessage = true;
 
        for (const message of messageHistory) {
        postData.messages.push({ role: "user", content: message });
-       }
+
+       if (isFirstMessage) {
+       postData.messages.push({ role: "system", content: `${system_message}` });
+       isFirstMessage = false;
+         }
+       } 
+       
 
        const response = await fetch(API_URL, {
-       signal: window.controller.signal,    
+       signal: window.controller.signal,
+       conversation_id: window.conversation_id,    
        method: "POST",   
        headers: {
        "Content-Type": "application/json",
@@ -154,35 +172,28 @@ const ask_gpt = async (message) => {
 		// Read the response as a stream of data
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder("utf-8");
-		while (true) {
-			const {
-				done, value
-			} = await reader.read();
-			if (done) {
-				break;
-			}
-			// Massage and parse the chunk of data 
-			const chunk = decoder.decode(value);
-			const lines = chunk.split("\n");
-			const parsedLines = lines
-				.map((line) => line.replace(/^data: /, "").trim()) // Remove the "data: " prefix 
-				.filter((line) => line !== "" && line !== "[DONE]") // Remove empty
-				.map((line) => JSON.parse(line));
-			for (const parsedLine of parsedLines) {
-				const {
-					choices
-				} = parsedLine;
-				const {
-					delta
-				} = choices[0];
-				const {
-					content
-				} = delta;
-				if (content) {
-					text += content;
-				}
-			}
-			
+      while (true) {
+      const { done, value } = await reader.read();
+      if (done) {
+        break;
+      }
+      // Massage and parse the chunk of data
+      const chunk = decoder.decode(value);
+      const lines = chunk.split("\n");
+      const parsedLines = lines
+        .map((line) => line.replace(/^data: /, "").trim()) // Remove the "data: " prefix
+        .filter((line) => line !== "" && line !== "[DONE]") // Remove empty lines and "[DONE]"
+        .map((line) => JSON.parse(line)); // Parse the JSON string
+
+      for (const parsedLine of parsedLines) {
+        const { choices } = parsedLine;
+        const { delta } = choices[0];
+        const { content } = delta;
+        // Update the UI with the new content
+        if (content) {
+		text += content;
+           }
+        }
 			document.getElementById(`gpt_${window.token}`).innerHTML =
 				markdown.render(text);
 			document.querySelectorAll('code:not(p code):not(li code)').forEach((el) => {
@@ -198,15 +209,14 @@ const ask_gpt = async (message) => {
             
         }
         
-     	// if text contains :
-		if (
-			text.includes(
-				`instead. Maintaining this website and API costs a lot of money`
-			)
-		) {
-			document.getElementById(`gpt_${window.token}`).innerHTML =
-				"An error occured, please reload / refresh cache and try again.";
-		}
+        if (
+      text.includes(
+        `instead. Maintaining this website and API costs a lot of money`
+      )
+      ) {
+      document.getElementById(`gpt_${window.token}`).innerHTML =
+        "An error occured, please reload / refresh cache and try again.";
+      }
 
 		add_message(window.conversation_id, "user", message);
 		add_message(window.conversation_id, "assistant", text);
@@ -225,26 +235,25 @@ const ask_gpt = async (message) => {
 		prompt_lock = false;
 
 		await load_conversations(20, 0);
-
-		console.log(e);
+        
+        console.log(e);
 
 		let cursorDiv = document.getElementById(`cursor`);
 		if (cursorDiv) cursorDiv.parentNode.removeChild(cursorDiv);
+        
+      if (e.name != `AbortError`) {
+      let error_message = `Oops ! Something went wrong, please try again later. Check error in console.`;
 
-		if (e.name != `AbortError`) {
-			let error_message = `oops ! something went wrong, please try again / reload. [stacktrace in console]`;
+      document.getElementById(`gpt_${window.token}`).innerHTML = error_message;
+      add_message(window.conversation_id, "assistant", error_message);
+    } else {
+      document.getElementById(`gpt_${window.token}`).innerHTML += ` [aborted]`;
+      add_message(window.conversation_id, "assistant", text + ` [aborted]`);
+    }
 
-			document.getElementById(`gpt_${window.token}`).innerHTML = error_message;
-			add_message(window.conversation_id, "assistant", error_message);
-		} else {
-			document.getElementById(`gpt_${window.token}`).innerHTML += ` [aborted]`;
-			add_message(window.conversation_id, "assistant", text + ` [aborted]`);
-		}
-
-		window.scrollTo(0, 0);
-	}
+    window.scrollTo(0, 0);
+  }
 };
-
 const clear_conversations = async () => {
 	const elements = box_conversations.childNodes;
 	let index = elements.length;
@@ -559,23 +568,37 @@ const load_settings_localstorage = async () => {
 	});
 };
 
-var toggleSwitch = document.getElementById("toggle-switch");
-toggleSwitch.addEventListener("change", function() {
-	if (toggleSwitch.checked) {
-		document.getElementById("light").checked = true;
-		var oldlink = document.getElementsByTagName("link").item(1);
-		var newlink = document.createElement("link");
-		newlink.setAttribute("rel", "stylesheet");
-		newlink.setAttribute("type", "text/css");
-		newlink.setAttribute("href", "assets/css/googlecode.min.css");
-		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-	} else {
-		document.getElementById("dark").checked = true;
-		var oldlink = document.getElementsByTagName("link").item(1);
-		var newlink = document.createElement("link");
-		newlink.setAttribute("rel", "stylesheet");
-		newlink.setAttribute("type", "text/css");
-		newlink.setAttribute("href", "assets/css/dracula.min.css");
-		document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-	}
-});
+function toggleTheme() {
+  var element = document.documentElement;
+  element.classList.toggle("dark");
+  var sunIcon = document.getElementById("sun-icon");
+  var moonIcon = document.getElementById("moon-icon");
+
+  if (element.classList.contains("dark")) {
+    sunIcon.style.display = "none";
+    moonIcon.style.display = "inline-block";
+    var oldlink = document.getElementsByTagName("link").item(1);
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", "assets/css/dracula.min.css");
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    localStorage.setItem("theme", "dark"); // Save theme state as "dark"
+  } else {
+    sunIcon.style.display = "inline-block";
+    moonIcon.style.display = "none";
+    var oldlink = document.getElementsByTagName("link").item(1);
+    var newlink = document.createElement("link");
+    newlink.setAttribute("rel", "stylesheet");
+    newlink.setAttribute("type", "text/css");
+    newlink.setAttribute("href", "assets/css/googlecode.min.css");
+    document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+    localStorage.setItem("theme", "light"); // Save theme state as "light"
+  }
+}
+
+// Set the initial theme
+var theme = localStorage.getItem("theme");
+if (theme === "dark") {
+  toggleTheme();
+}
