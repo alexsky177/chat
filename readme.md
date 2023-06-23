@@ -16,7 +16,7 @@ https://codebeautify.org/javascript-obfuscator</p>
 https://github.com/xtekky/chatgpt-clone</p>
 <p>Used Javascript Openai api request<br>
 https://www.builder.io/blog/stream-ai-javascript</p>
-<p>All functions are preserved, except for the web search - instead, a change in theme from dark to light has been made. Added temperature change function. Added context. So GPT remember your last 5 questions.</p>
+<p>All functions are preserved, except for the web search - instead, a change in theme from dark to light has been made. Added temperature change function. Added context. So GPT remember your last questions.</p>
 <h2>Run on localhost</h2>
 <p>This program runs on a laptop or desktop computer locally from a folder.</p>
 <h3>How to install localhost</h3>
