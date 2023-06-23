@@ -3,27 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="A conversational ChatGPT that listens, learns, and challenges">
         <meta property="og:title" content="ChatGPT light">
         <meta property="og:image" content="https://openai.com/content/images/2022/11/ChatGPT.jpg">
         <meta property="og:description" content="A conversational ChatGPT that listens, learns, and challenges">
         <meta property="og:url" content="https://github.com/alexsky177/chatgpt">
         <link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/dracula.min.css">
+		<link rel="stylesheet" href="assets/css/googlecode.min.css">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
         <link rel="manifest" href="assets/img/site.webmanifest">
         <script src="assets/js/icons.js"></script>
-	<script src="config.js"></script>
+		<script src="config.js" defer></script>
         <script src="assets/js/chat.js" defer></script>
-	<script src="https://cdn.jsdelivr.net/npm/markdown-it@latest/dist/markdown-it.min.js"></script>
-        <script>
-            const user_image = `<img src="assets/img/user.png" alt="User Avatar">`;
-            const gpt_image = `<img src="assets/img/gpt.png" alt="GPT Avatar">`;
-        </script>
-        <script src="assets/js/highlight.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/markdown-it@latest/dist/markdown-it.min.js"></script>
+        <script>const user_image = `<img src="assets/img/user.png" alt="User Avatar">`;
+                const gpt_image = `<img src="assets/img/gpt.png" alt="GPT Avatar">`;</script>
+		<script src="assets/js/highlight.min.js"></script>
         <script src="assets/js/highlightjs-copy.min.js"></script>
         <script>window.conversation_id = Array.from(crypto.getRandomValues(new Uint8Array(8))).map(n => n.toString(24).padStart(4, '0')).join('-');</script>
         <title>ChatGPT</title>
@@ -64,7 +62,7 @@
                 </div>
                 <div class="user-input">
                     <div class="box input-box">
-                        <textarea id="message-input" placeholder="Ask me any question" cols="30" rows="10" style="white-space: pre-wrap;"></textarea>
+                        <textarea id="message-input" placeholder="Ask me anything..." style="white-space: pre-line;"></textarea>
                         <div id="send-button">
                             <i class="fa-regular fa-paper-plane-top"></i>
                         </div>
@@ -73,20 +71,21 @@
                 <div class="buttons">
                      <div class="field">
                         <select name="model" id="model">
-			     <option value="gpt-3.5-turbo-0613">Model</option>
+						    <option value="gpt-3.5-turbo-16k">Model</option>
                              <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
                             <option value="gpt-3.5-turbo-0301">gpt-3.5-turbo-0301</option>
-			    <option value="gpt-3.5-turbo-0613">gpt-3.5-turbo-0613</option>
+                            <option value="gpt-3.5-turbo-0613">gpt-3.5-turbo-0613</option>
                             <option value="gpt-3.5-turbo-16k">gpt-3.5-turbo-16k</option>
-			    <option value="gpt-4">gpt-4</option>         
+							<option value="gpt-4">gpt-4</option>         
                             <option value="gpt-4-0314">gpt-4-0314</option>
-			    <option value="gpt-4-32k">gpt-4-32k</option>
-			    <option value="gpt-4-32k-0314">gpt-4-32k-0314</option>
+							<option value="gpt-4-32k">gpt-4-32k</option>
+							<option value="gpt-4-32k-0314">gpt-4-32k-0314</option>
                         </select>
                     </div>
-		   <div class="field">
-		           <select name="temperature" id="temperature">
-			    <option value="0.6">T&deg;</option>
+					 <div class="field">
+					     <select name="temperature" id="temperature">
+						    <option value="0.5">T&deg;</option>
+                            <option value="0.0">0.0</option>
                             <option value="0.1">0.1</option>
                             <option value="0.2">0.2</option>
                             <option value="0.3">0.3</option>
@@ -97,31 +96,23 @@
                             <option value="0.8">0.8</option>
                             <option value="0.9">0.9</option>
                             <option value="1.0">1.0</option>
-			    <option value="1.1">1.1</option>
-			    <option value="1.2">1.2</option>
-			    <option value="1.3">1.3</option>
-			    <option value="1.4">1.4</option>
-			   <option value="1.5">1.5</option>
+							<option value="1.1">1.1</option>
+							<option value="1.2">1.2</option>
+							<option value="1.3">1.3</option>
+							<option value="1.4">1.4</option>
+							<option value="1.5">1.5</option>
                         </select>
-		    </div>
-                    <div class="field">
-                        <input type="checkbox" id="toggle-switch">
-                        <label for="toggle-switch"></label>
-                        <span class="about"></span>
-			</div>
-		    <div class="field" style="display:none">
-		   <form class="color-picker">
-                    <fieldset>
-                        <label for="light" class="visually-hidden">Light</label>
-                        <input type="radio" title="light" name="theme" id="light">
-                        <label for="dark" class="visually-hidden">Dark theme</label>
-                        <input type="radio" title="dark" id="dark" name="theme" checked>
-                    </fieldset>
-                    </form>
-		  </div>	
-               </div>
+					</div>
+                    <div class="field" style="margin-left:15px;">
+                    <label for="toggle-switch" style="justify-content: center;">
+                    <input type="checkbox" id="toggle-switch" name="toggle-switch" onclick="toggleTheme()" style="display: none;">
+                    <i class="fas fa-sun-bright fa-xl" style="color:orange;" id="sun-icon"></i>
+                    <i class="fas fa-moon fa-xl" style="color:lightgray;" id="moon-icon"></i>
+                    </label>
+                   </div>
+                </div>
             </div>
-        </div>
+        </div> 
         <div class="mobile-sidebar">
             <i class="fa-solid fa-bars"></i>
         </div>
