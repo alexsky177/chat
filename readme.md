@@ -1,7 +1,7 @@
 <h1>ChatGPT - JavaScript clone</h1>
 <blockquote><p>Version ChatGPT 3.5 turbo, 3.5 turbo 0301.<br>
  <em>Version GPT 4 has not been tested yet.</em></p></blockquote>
-<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
+<img src="https://github.com/alexsky177/chat/blob/main/screen_dark.png?raw=true" alt="chatgpt"/>
 <p>&#10149; Download ZIP or use git command.</p> 
 <p>&#10149; Get your OpenAi key - https://platform.openai.com/account/api-keys</p>
 <p>&#10149; Open config.js and fill  <code>const strIndex = "YOUR_API_KEY";</code></p>
@@ -39,7 +39,7 @@ On the Windows command line or in the Mac terminal, type <pre><code>cd chat</cod
  <li>Or this address <code>http:/localhost:8000/</code></li>
  </ul>
 <p> Use app on your local computer.</p>
-<img src="https://github.com/alexsky177/chatgpt/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
+<img src="https://github.com/alexsky177/chat/blob/main/screen_light.png?raw=true" alt="chatgpt"/>
 <p><em>Last update - added convertations.<br> 
 Removed all php files.<br>
 Changed path for assets files.</em></p>
